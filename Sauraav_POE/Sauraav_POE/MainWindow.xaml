@@ -8,10 +8,11 @@
         Height="600"
         Width="920"
         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="LightPink"
+    <Border Background="#70145f"
             CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -29,7 +30,8 @@
                        Foreground="White"
                        FontSize="22"
                        Margin="20,0,0,0"></TextBlock>
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1"
+                        Margin="0,0,0,0">
                 <RadioButton Content="Create a New Recipe"
                              Height="50"
                              Foreground="White"
@@ -61,6 +63,13 @@
                              FontSize="14"
                              Style="{StaticResource menuButtonTheme}" />
             </StackPanel>
+            <TextBox Width="250"
+                     Height="40"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     Grid.Column="1"
+                     Style="{StaticResource ModernTextBox}"></TextBox>
         </Grid>
 
 

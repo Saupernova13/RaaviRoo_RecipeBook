@@ -26,12 +26,12 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="Gray"></Setter>
+                        Value="#4d0f41"></Setter>
             </Trigger>
             <Trigger Property="IsChecked"
                      Value="True">
                 <Setter Property="Background"
-                        Value="Black"></Setter>
+                        Value="#260720"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>
