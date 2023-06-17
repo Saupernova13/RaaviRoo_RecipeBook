@@ -1,0 +1,16 @@
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\bin\Debug\Sauraav_POE.exe.config
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\bin\Debug\Sauraav_POE.exe
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\bin\Debug\Sauraav_POE.pdb
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.csproj.AssemblyReference.cache
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.csproj.SuggestedBindingRedirects.cache
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\MainWindow.g.cs
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\App.g.cs
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE_MarkupCompile.cache
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE_MarkupCompile.lref
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\MainWindow.baml
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.g.resources
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.Properties.Resources.resources
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.csproj.GenerateResource.cache
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.csproj.CoreCompileInputs.cache
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.exe
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Sauraav_POE.pdb
