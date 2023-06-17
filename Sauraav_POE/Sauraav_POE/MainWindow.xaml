@@ -30,10 +30,39 @@
                        FontSize="22"
                        Margin="20,0,0,0"></TextBlock>
             <StackPanel Grid.Row="1">
-                <RadioButton Content="Home" Height="50" Foreground="White"  FontSize="14"/>
+                <RadioButton Content="Create a New Recipe"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}" />
+                <RadioButton Content="View Recipes"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}" />
+                <RadioButton Content="Edit Recipes"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}" />
+                <RadioButton Content="Scale Recipes"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}" />
+                <RadioButton Content="Reset Recipes to Default Values"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}" />
+                <RadioButton Content="Delete Recipes"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}" />
             </StackPanel>
         </Grid>
-        
-      
+
+
     </Border>
 </Window>
