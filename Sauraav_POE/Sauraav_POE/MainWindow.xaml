@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:Sauraav_POE.MVM.ViewModel"
         xmlns:local="clr-namespace:Sauraav_POE"
         mc:Ignorable="d"
         Height="600"
@@ -12,7 +13,10 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="#70145f"
+    <Window.DataContext>
+        <viewModel:HomeViewModel />
+    </Window.DataContext>
+    <Border Background="#65394c"
             CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -32,11 +36,19 @@
                        Margin="20,0,0,0"></TextBlock>
             <StackPanel Grid.Row="1"
                         Margin="0,0,0,0">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}" />
                 <RadioButton Content="Create a New Recipe"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource menuButtonTheme}" />
+                             Style="{StaticResource menuButtonTheme}"
+                             Command="{Binding addRecipeViewCommand}" />
                 <RadioButton Content="View Recipes"
                              Height="50"
                              Foreground="White"
@@ -63,13 +75,17 @@
                              FontSize="14"
                              Style="{StaticResource menuButtonTheme}" />
             </StackPanel>
-            <TextBox Width="250"
+            <TextBox Width="201"
                      Height="40"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Left"
-                     Margin="5"
+                     Margin="10"
                      Grid.Column="1"
                      Style="{StaticResource ModernTextBox}"></TextBox>
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}" />
         </Grid>
 
 
