@@ -48,7 +48,7 @@
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource menuButtonTheme}"
-                             Command="{Binding addRecipeViewCommand}" />
+                             Command="{Binding AddRecipeViewCommand}" />
                 <RadioButton Content="View Recipes"
                              Height="50"
                              Foreground="White"
