@@ -8,13 +8,14 @@ using System.Runtime.CompilerServices;
 
 namespace Sauraav_POE.Core
 {
-    internal class ObservableObject : INotifyPropertyChanged
+    public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void onPropertyChanged([CallerMemberName] string name = null)
-        { 
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(name));
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
     }
 }

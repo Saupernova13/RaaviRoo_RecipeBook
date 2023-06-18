@@ -14,7 +14,7 @@
         Background="Transparent"
         AllowsTransparency="True">
     <Window.DataContext>
-        <viewModel:HomeViewModel />
+        <viewModel:MainViewModel />
     </Window.DataContext>
     <Border Background="#65394c"
             CornerRadius="15">
@@ -87,7 +87,5 @@
                             Margin="10"
                             Content="{Binding CurrentView}" />
         </Grid>
-
-
     </Border>
 </Window>

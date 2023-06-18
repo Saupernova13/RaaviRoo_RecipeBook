@@ -7,12 +7,12 @@ using Sauraav_POE.Core;
 
 namespace Sauraav_POE.MVM.ViewModel
 {
-     class MainViewModel: ObservableObject
+     public class MainViewModel: ObservableObject
     {
-        public RelayCommand homeViewCommand { get; set; }
-        public RelayCommand addRecipeViewCommand { get; set; }
-        public HomeViewModel homeVM { get; set; }
-        public AddRecipeViewModel addRecipeVM { get; set; }
+        public RelayCommand HomeViewCommand { get; set; }
+        public RelayCommand AddRecipeViewCommand { get; set; }
+        public HomeViewModel HomeVM { get; set; }
+        public AddRecipeViewModel AddRecipeVM { get; set; }
 
         private object _currentView;
 
@@ -23,11 +23,11 @@ namespace Sauraav_POE.MVM.ViewModel
 		}
 
 		public MainViewModel() {
-            homeVM = new HomeViewModel();
-            addRecipeVM = new AddRecipeViewModel();
-            CurrentView = homeVM;
-            homeViewCommand = new RelayCommand(o => { CurrentView = homeVM; });
-            addRecipeViewCommand = new RelayCommand(o => { CurrentView = addRecipeVM; });
+            HomeVM = new HomeViewModel();
+            AddRecipeVM = new AddRecipeViewModel();
+            CurrentView = HomeVM;
+            HomeViewCommand = new RelayCommand(o => { CurrentView = HomeVM; });
+            AddRecipeViewCommand = new RelayCommand(o => { CurrentView = AddRecipeVM; });
         }
     }
 }
