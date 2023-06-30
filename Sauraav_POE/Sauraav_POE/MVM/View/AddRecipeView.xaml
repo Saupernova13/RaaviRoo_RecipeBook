@@ -1,12 +1,60 @@
 ﻿<UserControl x:Class="Sauraav_POE.MVM.View.AddRecipeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Sauraav_POE.MVM.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="DarkBlue">
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+
     <Grid>
-            
+        <StackPanel>
+            <Label Content="Please enter the Recipe Name:"
+                   Foreground="White"></Label>
+            <TextBox x:Name="recipeNameTextBox"
+                     Width="200"
+                     Height="40"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Style="{StaticResource ModernTextBox}"
+                     Tag="Recipe Name..." />
+
+            <Label Content="Please describe the recipe dish:"
+                   Foreground="White"></Label>
+            <RichTextBox  Style="{StaticResource ModernRichTextBox}"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          PreviewMouseLeftButtonDown="describeRecipe_PreviewMouseLeftButtonDown"
+                          x:Name="describeRecipe"
+                          BorderThickness="0"
+                          Height="200"
+                          Width="300"
+                          Foreground="#d3d3d3">
+                <FlowDocument>
+                    <Paragraph>I am a flow document. Would you like to edit me?</Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+
+            <Label Content="Please name the recipe's Author:"
+                   Foreground="White"></Label>
+            <TextBox x:Name="authorNameTextBox"
+                     Width="200"
+                     Height="40"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Style="{StaticResource ModernTextBox}"
+                     Tag="Author Name..." />
+            <Label Content="Please enter in the serving size:"
+                   Foreground="White"></Label>
+            <TextBox x:Name="servingSizeTextBox"
+                     Width="200"
+                     Height="40"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Style="{StaticResource ModernTextBox}"
+                     Tag="Serving Size..."
+                     PreviewTextInput="NumberValidationTextBox" />
+        </StackPanel>
     </Grid>
 </UserControl>
