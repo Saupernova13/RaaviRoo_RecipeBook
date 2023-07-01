@@ -20,6 +20,7 @@ namespace Sauraav_POE
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

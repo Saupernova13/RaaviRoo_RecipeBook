@@ -5,56 +5,116 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Sauraav_POE.MVM.View"
              mc:Ignorable="d"
-             d:DesignHeight="450"
-             d:DesignWidth="800">
+             d:DesignHeight="505"
+             d:DesignWidth="700">
 
     <Grid>
-        <StackPanel>
-            <Label Content="Please enter the Recipe Name:"
-                   Foreground="White"></Label>
-            <TextBox x:Name="recipeNameTextBox"
-                     Width="200"
-                     Height="40"
-                     VerticalAlignment="Top"
-                     HorizontalAlignment="Left"
-                     Style="{StaticResource ModernTextBox}"
-                     Tag="Recipe Name..." />
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0">
+                <Label Content="Recipe Number:"
+                       Foreground="White"></Label>
+                <TextBox x:Name="recipeNumberTextBox"
+                         Width="200"
+                         Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}"
+                         Tag="You can't edit this vallue..."
+                         IsReadOnly="True" />
+                <Label Content="Recipe Name:"
+                       Foreground="White"></Label>
+                <TextBox x:Name="recipeNameTextBox"
+                         Width="200"
+                         Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}"
+                         Tag="Recipe Name..." />
 
-            <Label Content="Please describe the recipe dish:"
-                   Foreground="White"></Label>
-            <RichTextBox  Style="{StaticResource ModernRichTextBox}"
-                          VerticalAlignment="Top"
-                          HorizontalAlignment="Left"
-                          PreviewMouseLeftButtonDown="describeRecipe_PreviewMouseLeftButtonDown"
-                          x:Name="describeRecipe"
-                          BorderThickness="0"
-                          Height="200"
-                          Width="300"
-                          Foreground="#d3d3d3">
+
+                <Label Content="Serving Size:"
+                       Foreground="White"></Label>
+                <TextBox x:Name="servingSizeTextBox"
+                         Width="200"
+                         Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}"
+                         Tag="Serving Size..."
+                         PreviewTextInput="servingSizeTextBox_PreviewTextInput" />
+
+
+
+                <Label Content="Recipe Description:"
+                       Foreground="White"></Label>
+
+            </StackPanel>
+            <RichTextBox Style="{StaticResource ModernRichTextBox}"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         PreviewMouseLeftButtonDown="describeRecipe_PreviewMouseLeftButtonDown"
+                         x:Name="describeRecipe"
+                         BorderThickness="0"
+                         Height="200"
+                         Width="500"
+                         Foreground="#d3d3d3"
+                         Grid.Row="1"
+                         Margin="0,5,0,0"
+                         Grid.ColumnSpan="2">
                 <FlowDocument>
-                    <Paragraph>I am a flow document. Would you like to edit me?</Paragraph>
+                    <Paragraph>Describe the Dish...</Paragraph>
                 </FlowDocument>
             </RichTextBox>
+            <StackPanel Grid.Column="1">
+                <Label Content="Author Name:"
+                       Foreground="White"></Label>
+                <TextBox x:Name="authorNameTextBox"
+                         Width="200"
+                         Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}"
+                         Tag="Author Name..." />
+                <Label Content="Number of Ingredients:"
+                       Foreground="White"></Label>
+                <TextBox x:Name="ingredientQuantityTextBox"
+                         Width="200"
+                         Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}"
+                         Tag="Number of Ingredients..."
+                         PreviewTextInput="ingredientQuantityTextBox_PreviewTextInput" />
+                <Label Content="Number of Steps:"
+                       Foreground="White"></Label>
+                <TextBox x:Name="numberOfStepsTextBox"
+                         Width="200"
+                         Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}"
+                         Tag="Number of Steps..."
+                         PreviewTextInput="numberOfStepsTextBox_PreviewTextInput" />
 
-            <Label Content="Please name the recipe's Author:"
-                   Foreground="White"></Label>
-            <TextBox x:Name="authorNameTextBox"
-                     Width="200"
-                     Height="40"
-                     VerticalAlignment="Top"
-                     HorizontalAlignment="Left"
-                     Style="{StaticResource ModernTextBox}"
-                     Tag="Author Name..." />
-            <Label Content="Please enter in the serving size:"
-                   Foreground="White"></Label>
-            <TextBox x:Name="servingSizeTextBox"
-                     Width="200"
-                     Height="40"
-                     VerticalAlignment="Top"
-                     HorizontalAlignment="Left"
-                     Style="{StaticResource ModernTextBox}"
-                     Tag="Serving Size..."
-                     PreviewTextInput="NumberValidationTextBox" />
-        </StackPanel>
+
+            </StackPanel>
+            <Button Grid.Column="1"
+                    Content="Button"
+                    HorizontalAlignment="Left"
+                    Margin="270,201,0,0"
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource ModernButton}"
+                    Width="100"
+                    Click="Button_Click" />
+        </Grid>
     </Grid>
 </UserControl>

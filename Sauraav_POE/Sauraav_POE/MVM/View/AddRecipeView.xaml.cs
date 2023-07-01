@@ -29,12 +29,33 @@ namespace Sauraav_POE.MVM.View
         private void describeRecipe_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             describeRecipe.Document.Blocks.Clear();
-            describeRecipe.Foreground = Brushes.White;
+            describeRecipe.Foreground = Brushes.White;  
         }
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+
+        private void ingredientQuantityTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            onlyNumbers(sender, e);
+        }
+
+        private void numberOfStepsTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            onlyNumbers(sender, e);
+        }
+
+        private void servingSizeTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            onlyNumbers(sender, e);
+        }
+
+        public static void onlyNumbers(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Recipe Added!");
         }
     }
 }
