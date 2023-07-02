@@ -112,7 +112,7 @@
 
             </StackPanel>
             <Button Grid.Column="1"
-                    Content="Button"
+                    Content="Next"
                     HorizontalAlignment="Left"
                     Margin="280,211,0,0"
                     Grid.Row="1"

@@ -20,6 +20,8 @@ namespace Sauraav_POE.Windows
     /// </summary>
     public partial class addIng_Step : Window
     {
+        public static dynamic converter = new System.Windows.Media.BrushConverter();
+        public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
         public addIng_Step()
         {
             InitializeComponent();
@@ -31,16 +33,29 @@ namespace Sauraav_POE.Windows
             StackPanel stackPanelIngredients = new StackPanel()
             {
                 Orientation = Orientation.Vertical,
-                Margin = new Thickness(10)
+                Margin = new Thickness(10),
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center
 
             };
 
+            Label ingredientLabel = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Ingredient No.{n}:",
+                Foreground = Brushes.White,
+                FontSize = 20,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
 
             Label ingredientLabelName = new Label()
             {
                 Name = $"ingredientLabel_{n}",
-                Content = $"Enter name for Ingredient No.{n}:",
-                Foreground = Brushes.White
+                Content = $"Enter name:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
             };
 
             TextBox ingredientTextBoxName = new TextBox()
@@ -48,17 +63,19 @@ namespace Sauraav_POE.Windows
                 Name = $"ingredientTextBox_{n}",
                 Width = 200,
                 Height = 40,
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
-                Tag = $"Name for Ingredient No.{n}..."
+                Tag = $"Name..."
             };
 
             Label ingredientLabelQty = new Label()
             {
                 Name = $"ingredientLabel_{n}",
-                Content = $"Enter quantity for Ingredient No.{n}:",
-                Foreground = Brushes.White
+                Content = $"Enter quantity:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
             };
 
             TextBox ingredientTextBoxQty = new TextBox()
@@ -66,17 +83,19 @@ namespace Sauraav_POE.Windows
                 Name = $"ingredientTextBox_{n}",
                 Width = 200,
                 Height = 40,
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
-                Tag = $"Quantity for Ingredient No.{n}..."
+                Tag = $"Quantity..."
             };
 
             Label ingredientLabelMeasurementUnit = new Label()
             {
                 Name = $"ingredientLabel_{n}",
-                Content = $"Enter Unit for Ingredient No.{n}:",
-                Foreground = Brushes.White
+                Content = $"Enter Measurement Unit:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
             };
 
             ComboBox ingredientComboBoxMeasurementUnit = new ComboBox()
@@ -84,18 +103,20 @@ namespace Sauraav_POE.Windows
                 Name = $"ingredientTextBox_{n}",
                 Width = 200,
                 Height = 40,
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernComboBox"],
-                Tag = $"Unit for Ingredient No.{n}...",
+                Tag = $"Unit...",
                 Items = { "Grams", "Milligrams", "Kilograms", "Milliliters", "Liters", "Tablespoons", "Teaspoons", "Cups", "Pieces", "Slices" }
             };
 
             Label ingredientLabelFoodGroup = new Label()
             {
                 Name = $"ingredientLabel_{n}",
-                Content = $"Select food group for Ingredient No.{n}:",
-                Foreground = Brushes.White
+                Content = $"Select food group:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
             };
 
             ComboBox ingredientComboBoxFoodGroup = new ComboBox()
@@ -103,18 +124,20 @@ namespace Sauraav_POE.Windows
                 Name = $"ingredientTextBox_{n}",
                 Width = 200,
                 Height = 40,
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernComboBox"],
-                Tag = $"Food group for Ingredient No.{n}...",
+                Tag = $"Food group...",
                 Items = { "Starchy foods", "Vegetables and fruits", "Dry beans, peas, lentils and soy", "Chicken, fish, meat and eggs", "Milk and dairy products", "Fats and oils", "Water" }
             };
 
             Label ingredientLabelCalories = new Label()
             {
                 Name = $"ingredientLabel_{n}",
-                Content = $"Enter calorie count for Ingredient No.{n}:",
-                Foreground = Brushes.White
+                Content = $"Enter calorie count:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
             };
 
             TextBox ingredientTextBoxCalories = new TextBox()
@@ -122,13 +145,13 @@ namespace Sauraav_POE.Windows
                 Name = $"ingredientTextBox_{n}",
                 Width = 200,
                 Height = 40,
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
-                Tag = $"Calorie count for Ingredient No.{n}..."
+                Tag = $"Calorie count..."
             };
 
-
+            stackPanelIngredients.Children.Add(ingredientLabel);
             stackPanelIngredients.Children.Add(ingredientLabelName);
             stackPanelIngredients.Children.Add(ingredientTextBoxName);
             stackPanelIngredients.Children.Add(ingredientLabelQty);
@@ -142,16 +165,13 @@ namespace Sauraav_POE.Windows
             Grid grid = new Grid();
             grid.Margin = new Thickness(10);
             Rectangle rectangle = new Rectangle();
-            var converter = new System.Windows.Media.BrushConverter();
-            var brush = (Brush)converter.ConvertFromString("#9A311C25");
             rectangle.Fill = brush;
-            rectangle.Height = 370;
-            rectangle.Width = 225;
+            rectangle.Height = 395;
+            rectangle.Width = 222;
             rectangle.RadiusX = 10;
             rectangle.RadiusY = 10;
-            rectangle.HorizontalAlignment = HorizontalAlignment.Left;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Center;
             rectangle.VerticalAlignment = VerticalAlignment.Center;
-
             grid.Children.Add(rectangle);
             grid.Children.Add(stackPanelIngredients);
             addIng_Step_Body.Children.Add(grid);
@@ -164,6 +184,13 @@ namespace Sauraav_POE.Windows
                 Orientation = Orientation.Vertical,
                 Margin = new Thickness(10)
 
+            };
+            Label stepCountLabel = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Step No.{n}:",
+                Foreground = Brushes.White,
+                FontSize = 20
             };
 
             Label stepLabel = new Label()
@@ -184,9 +211,24 @@ namespace Sauraav_POE.Windows
                 Tag = $"Enter in Step No.{n}..."
             };
 
+            stackPanelSteps.Children.Add(stepCountLabel);
             stackPanelSteps.Children.Add(stepLabel);
             stackPanelSteps.Children.Add(stepTextBox);
-            addIng_Step_Body_2.Children.Add(stackPanelSteps);
+            Grid grid = new Grid();
+            grid.Margin = new Thickness(10);
+            Rectangle rectangle = new Rectangle();
+            var converter = new System.Windows.Media.BrushConverter();
+            var brush = (Brush)converter.ConvertFromString("#9A311C25");
+            rectangle.Fill = brush;
+            rectangle.Height = 130;
+            rectangle.Width = 225;
+            rectangle.RadiusX = 10;
+            rectangle.RadiusY = 10;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Left;
+            rectangle.VerticalAlignment = VerticalAlignment.Center;
+            grid.Children.Add(rectangle);
+            grid.Children.Add(stackPanelSteps);
+            addIng_Step_Body_2.Children.Add(grid);
         }
 
         public void populateUI(int ingredientNo, int stepNo)
