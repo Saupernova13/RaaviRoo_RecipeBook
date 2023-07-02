@@ -13,7 +13,6 @@ namespace Sauraav_POE_Part_2
         public static List<RecipeComplete> allRecipes = new List<RecipeComplete>();
         static RecipeComplete activeRecipe = new RecipeComplete();
         public static bool justStarted = true;
-      
         public static void bootMessage()
         {
             if (allRecipes.Count == 0)
@@ -31,7 +30,7 @@ namespace Sauraav_POE_Part_2
             if (justStarted)
             {
                 Console.WriteLine($"\n\nBefore you get started, you need to have at least ONE Recipe in your book.\nPlease enter in your first Recipe\n");
-                startAction.populateRecipe(allRecipes);
+            //    startAction.populateRecipe(allRecipes);
                 justStarted = false;
             }
             else
@@ -49,12 +48,12 @@ namespace Sauraav_POE_Part_2
                     {
                         case "1":
                             Console.Clear();
-                            startAction.populateRecipe(allRecipes);
+                           // startAction.populateRecipe(allRecipes);
                             trigger = false;
                             break;
                         case "2":
                             Console.Clear();
-                            index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
+                          //  index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
                             bootMessage();
                             trigger = false;
                             break;
@@ -65,7 +64,7 @@ namespace Sauraav_POE_Part_2
                             break;
                         case "4":
                             Console.Clear();
-                            index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
+                          //  index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
                             activeRecipe = allRecipes[index];
                             Console.WriteLine("\n\nThe total calories in this recipe is: " + activeRecipe.totalCalories);
                             bootMessage();
@@ -73,16 +72,16 @@ namespace Sauraav_POE_Part_2
                             break;
                         case "5":
                             Console.Clear();
-                            index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
+                          //  index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
                             activeRecipe = allRecipes[index];
-                            //activeRecipe.scaleRecipe();
+                          //  activeRecipe.scaleRecipe();
                             allRecipes[index] = activeRecipe;
                             bootMessage();
                             trigger = false;
                             break;
                         case "6":
                             Console.Clear();
-                            index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
+                         //   index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
                             activeRecipe = allRecipes[index];
                             activeRecipe.resetIngredientQuantities();
                             allRecipes[index] = activeRecipe;
@@ -92,7 +91,7 @@ namespace Sauraav_POE_Part_2
                         case "7":
                             bool ifDeleteConfirm = false;
                             Console.Clear();
-                            index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
+                          //  index = startAction.checkIfValidIntAndPrint(allRecipes, activeRecipe);
                             Console.Clear();
                           //  RecipeActions.printBorder();
                             Console.WriteLine($"Are you sure you want to delete Recipe {index + 1}?\nRespond by entering in the corresponding number:\n1)\tNO\n2)\tYES");

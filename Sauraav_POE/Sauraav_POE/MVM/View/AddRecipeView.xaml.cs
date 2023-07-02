@@ -46,7 +46,6 @@ namespace Sauraav_POE.MVM.View
             currentRecipe.recipeName = recipeNameTextBox.Text;
             currentRecipe.recipeDescription = new TextRange(describeRecipe.Document.ContentStart, describeRecipe.Document.ContentEnd).Text;
             currentRecipe.recipeAuthor = recipeAuthorNameTextBox.Text;
-            
             try
             {
                 currentRecipe.recipeServingSize = Int32.Parse(servingSizeTextBox.Text);
@@ -89,7 +88,7 @@ namespace Sauraav_POE.MVM.View
             
             //display currentRecipe in showmessage
             MessageBox.Show("Recipe Name:\t\t" + currentRecipe.recipeName + "\nRecipe Description:\t\t" + currentRecipe.recipeDescription + "\nRecipe Author:\t\t" + currentRecipe.recipeAuthor + "\nRecipe Serving Size:\t\t" + currentRecipe.recipeServingSize + "\nRecipe Total Time:\t\t" + currentRecipe.recipeTotalTime + "\nSteps to Recipe:\t\t" + currentRecipe.stepsToRecipe + "\nAmount of Ingredients:\t\t" + currentRecipe.amountOfIngredients);
-
+        
             addIng_Step newWindow = new addIng_Step();
             newWindow.Show();
         }

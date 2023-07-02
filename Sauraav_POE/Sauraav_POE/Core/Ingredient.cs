@@ -17,5 +17,18 @@ namespace Sauraav_POE_Part_2
         public string measurementUnit { get; set; }
         public string foodGroup { get; set; }
         public double calories { get; set; }
+
+        public Ingredient(string name, double quantity, double quantityOG,  string measurementUnit, string foodGroup, double calories)
+        {
+            this.name = name;
+            this.quantity = quantity;
+            this.quantityOG = quantityOG;
+            this.measurementUnit = measurementUnit;
+            this.foodGroup = foodGroup;
+            this.calories = calories;
+        }
     }
+
+
+
 }
