@@ -25,3 +25,7 @@ C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\S
 C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Theme\ButtonTheme.baml
 C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Theme\ListBoxTheme.baml
 C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Theme\RichTextBoxTheme.baml
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\addIng_Step.g.cs
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\addIng_Step.baml
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Theme\ComboBoxTheme.baml
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\Theme\ScrollbarTheme.baml

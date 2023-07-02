@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="addIng_Step.xaml.cs">
+      <DependentUpon>addIng_Step.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,7 +66,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\classTesting.cs" />
+    <Compile Include="Core\externalMethods.cs" />
+    <Compile Include="Core\Ingredient.cs" />
+    <Compile Include="Core\mainClass.cs" />
     <Compile Include="Core\ObservableObject.cs" />
+    <Compile Include="Core\Recipe.cs" />
+    <Compile Include="Core\RecipeActions.cs" />
+    <Compile Include="Core\RecipeComplete.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -81,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Theme\ComboBoxTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\ListBoxTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,13 +107,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Theme\ScrollbarTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\TextBoxTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="addIng_Step.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVM\ViewModel\AddRecipeViewModel.cs" />
+    <Compile Include="MVM\ViewModel\AnotherViewModel.cs" />
     <Compile Include="MVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVM\ViewModel\TroubleshootViewModel.cs" />
@@ -137,6 +160,7 @@
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="MVM\Model\" />
+    <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Spidey.png" />

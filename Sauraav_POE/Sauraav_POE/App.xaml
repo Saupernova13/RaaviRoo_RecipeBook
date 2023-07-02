@@ -13,6 +13,8 @@
                 <ResourceDictionary Source="Theme/RichTextBoxTheme.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Theme/ListBoxTheme.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Theme/ButtonTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Theme/ComboBoxTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Theme/ScrollbarTheme.xaml"></ResourceDictionary>
 
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
@@ -20,7 +22,7 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:AddRecipeViewModel}">
                 <view:AddRecipeView />
-            </DataTemplate>
+            </DataTemplate> 
         </ResourceDictionary>
     </Application.Resources>
 </Application>

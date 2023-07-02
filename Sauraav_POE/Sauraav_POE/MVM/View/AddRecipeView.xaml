@@ -19,16 +19,6 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0">
-                <Label Content="Recipe Number:"
-                       Foreground="White"></Label>
-                <TextBox x:Name="recipeNumberTextBox"
-                         Width="200"
-                         Height="40"
-                         VerticalAlignment="Top"
-                         HorizontalAlignment="Left"
-                         Style="{StaticResource ModernTextBox}"
-                         Tag="You can't edit this vallue..."
-                         IsReadOnly="True" />
                 <Label Content="Recipe Name:"
                        Foreground="White"></Label>
                 <TextBox x:Name="recipeNameTextBox"
@@ -37,7 +27,17 @@
                          VerticalAlignment="Top"
                          HorizontalAlignment="Left"
                          Style="{StaticResource ModernTextBox}"
-                         Tag="Recipe Name..." />
+                         Tag="Recipe Name..."/>
+
+                <Label Content="Author Name:"
+                       Foreground="White"></Label>
+                <TextBox x:Name="recipeAuthorNameTextBox"
+                         Width="200"
+                         Height="40"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}"
+                         Tag="Author Name..." />
 
 
                 <Label Content="Serving Size:"
@@ -49,7 +49,7 @@
                          HorizontalAlignment="Left"
                          Style="{StaticResource ModernTextBox}"
                          Tag="Serving Size..."
-                         PreviewTextInput="servingSizeTextBox_PreviewTextInput" />
+                         PreviewTextInput="onlyNumbers" />
 
 
 
@@ -74,15 +74,20 @@
                 </FlowDocument>
             </RichTextBox>
             <StackPanel Grid.Column="1">
-                <Label Content="Author Name:"
+
+                <Label Content="Preparation Time:"
                        Foreground="White"></Label>
-                <TextBox x:Name="authorNameTextBox"
+                <TextBox x:Name="preparationTimeTextBox"
                          Width="200"
                          Height="40"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Left"
                          Style="{StaticResource ModernTextBox}"
-                         Tag="Author Name..." />
+                         Tag="Enter Time in Minutes..."
+                         PreviewTextInput="onlyNumbers" />
+
+
+            
                 <Label Content="Number of Ingredients:"
                        Foreground="White"></Label>
                 <TextBox x:Name="ingredientQuantityTextBox"
@@ -92,7 +97,7 @@
                          HorizontalAlignment="Left"
                          Style="{StaticResource ModernTextBox}"
                          Tag="Number of Ingredients..."
-                         PreviewTextInput="ingredientQuantityTextBox_PreviewTextInput" />
+                         PreviewTextInput="onlyNumbers" />
                 <Label Content="Number of Steps:"
                        Foreground="White"></Label>
                 <TextBox x:Name="numberOfStepsTextBox"
@@ -102,19 +107,19 @@
                          HorizontalAlignment="Left"
                          Style="{StaticResource ModernTextBox}"
                          Tag="Number of Steps..."
-                         PreviewTextInput="numberOfStepsTextBox_PreviewTextInput" />
+                         PreviewTextInput="onlyNumbers" />
 
 
             </StackPanel>
             <Button Grid.Column="1"
                     Content="Button"
                     HorizontalAlignment="Left"
-                    Margin="270,201,0,0"
+                    Margin="280,211,0,0"
                     Grid.Row="1"
                     VerticalAlignment="Top"
                     Style="{StaticResource ModernButton}"
                     Width="100"
-                    Click="Button_Click" />
+                    Click="saveRecipeDetails" />
         </Grid>
     </Grid>
 </UserControl>

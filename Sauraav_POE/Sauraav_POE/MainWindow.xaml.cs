@@ -20,7 +20,12 @@ namespace Sauraav_POE
         public MainWindow()
         {
             InitializeComponent();
+          
+        }
 
+        private void Kill_Program(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

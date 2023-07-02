@@ -14,7 +14,7 @@
         Background="Transparent"
         AllowsTransparency="True">
     <Window.DataContext>
-        <viewModel:MainViewModel />
+        <viewModel:MainViewModel/>
     </Window.DataContext>
     <Border Background="#65394C"
             CornerRadius="15">
@@ -82,6 +82,12 @@
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource menuButtonTheme}" />
+                <RadioButton Content="Close Program"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource menuButtonTheme}"
+                             Click="Kill_Program"/>
             </StackPanel>
             <TextBox Width="200"
                      Height="40"

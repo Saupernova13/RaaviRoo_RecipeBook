@@ -12,8 +12,7 @@ namespace Sauraav_POE.MVM.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand AddRecipeViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
-        public AddRecipeViewModel AddRecipeVM { get; set; }
-
+        public  AddRecipeViewModel AddRecipeVM { get; set; }
         private object _currentView;
 
 		public object CurrentView
@@ -25,9 +24,11 @@ namespace Sauraav_POE.MVM.ViewModel
 		public MainViewModel() {
             HomeVM = new HomeViewModel();
             AddRecipeVM = new AddRecipeViewModel();
-            CurrentView = HomeVM;
-            HomeViewCommand = new RelayCommand(o => { CurrentView = HomeVM; });
             AddRecipeViewCommand = new RelayCommand(o => { CurrentView = AddRecipeVM; });
+            HomeViewCommand = new RelayCommand(o => { CurrentView = HomeVM; });
+            CurrentView = new HomeViewModel();
         }
+
+
     }
 }
