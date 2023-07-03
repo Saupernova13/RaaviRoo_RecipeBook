@@ -309,7 +309,7 @@ namespace Sauraav_POE.Windows
         {
             AddRecipeView.currentRecipe.descriptionOfSteps = readTextBoxValuesDesc();
             AddRecipeView.currentRecipe.ingredients = readTextBoxValuesIngredients();
-            customShowMessage csm = new customShowMessage(this);
+            customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully captured!", this);
             csm.Show();
 
         }

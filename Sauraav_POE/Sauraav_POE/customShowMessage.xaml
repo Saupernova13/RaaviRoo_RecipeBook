@@ -13,29 +13,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Window.DataContext>
-        <viewModel:MainViewModel />
-    </Window.DataContext>
     <Border Background="#FF311C25"
             CornerRadius="15">
-        <Border Background="#65394C"
-                CornerRadius="20" Margin="10">
-            <Grid>
-                <Button Margin="315,166,10,10"
-                        Style="{StaticResource ModernButton}"
-                        Content="OK"
-                        Click="OK_Click"></Button>
-                <Rectangle Fill="#9A311C25"
-                           Margin="0,39,0,188"></Rectangle>
-                <Label Content="Details Captured!"
-                       FontSize="20"
-                       Margin="10,0,257,196"
-                       Foreground="White"></Label>
-                <TextBlock Foreground="White"
-                           FontSize="20"
-                           Text="The details you entered in have been&#x0a;successfuly captured!"
-                           Margin="15,54,15,69"></TextBlock>
-            </Grid>
-        </Border>
     </Border>
 </Window>

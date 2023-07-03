@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sauraav_POE.Windows;
+using Sauraav_POE_Part_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +19,21 @@ namespace Sauraav_POE
 {
     public partial class MainWindow : Window
     {
+        //List handles storage multiple recipes, actice recipe keeps current recipe in memory
+        public static List<RecipeComplete> allRecipes = new List<RecipeComplete>();
+        //$"\n\nYou currently have {allRecipes.Count} recipe(s) in your recipe book.\n"
+        public static bool justStarted = true;
         public MainWindow()
         {
             InitializeComponent();
-          
+
+
         }
 
         private void Kill_Program(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+
         }
     }
 }
