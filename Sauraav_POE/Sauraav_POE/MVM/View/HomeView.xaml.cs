@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Sauraav Jayrajh
+//ST10024620
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace Sauraav_POE.MVM.View
 {
-    /// <summary>
-    /// Interaction logic for HomeView.xaml
-    /// </summary>
     public partial class HomeView : UserControl
     {
         public HomeView()

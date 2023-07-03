@@ -2,6 +2,7 @@
 //ST10024620
 using Sauraav_POE.MVM.View;
 using Sauraav_POE.Windows;
+using Sauraav_POE_Part_2;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -13,8 +14,10 @@ namespace Sauraav_POE
     {
         public static bool isNull = false;
         public static addIng_Step closeThis;
-        public customShowMessage(string windowName, string WindowDetails, addIng_Step closeWindow = null)
+        public RecipeComplete currentRecipe;
+        public customShowMessage(string windowName, string WindowDetails, addIng_Step closeWindow = null, RecipeComplete passRecipe = null)
         {
+            currentRecipe = passRecipe;
             InitializeComponent();
             CreateUIElements(windowName, WindowDetails);
             if (!(closeWindow == null))
@@ -67,7 +70,7 @@ namespace Sauraav_POE
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.allRecipes.Add(AddRecipeView.currentRecipe);
+            MainWindow.allRecipes.Add(currentRecipe);
             this.Close();
             if (!isNull)
             {

@@ -16,7 +16,7 @@ namespace Sauraav_POE.MVM.View
 
     public partial class AddRecipeView : UserControl
     {
-        public static RecipeComplete currentRecipe = new RecipeComplete();
+        public  RecipeComplete currentRecipe = new RecipeComplete();
         private static bool isMessageBoxOpen = false;
 
         public static void showMessageCustom(string windowName, string windowText)
@@ -124,7 +124,7 @@ namespace Sauraav_POE.MVM.View
             }
             else
             {
-                addIng_Step newWindow = new addIng_Step();
+                addIng_Step newWindow = new addIng_Step(currentRecipe);
                 newWindow.Show();
             }
             clearForm();

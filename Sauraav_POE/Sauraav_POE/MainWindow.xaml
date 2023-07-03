@@ -61,7 +61,8 @@
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource menuButtonTheme}" />
+                             Style="{StaticResource menuButtonTheme}"
+                             Command="{Binding ViewRecipeViewCommand}" />
                 <RadioButton Content="Edit Recipes"
                              Height="50"
                              Foreground="White"

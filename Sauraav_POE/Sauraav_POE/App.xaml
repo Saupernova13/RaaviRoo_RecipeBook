@@ -22,7 +22,10 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:AddRecipeViewModel}">
                 <view:AddRecipeView />
-            </DataTemplate> 
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ViewRecipeViewModel}">
+                <view:ViewRecipeView />
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

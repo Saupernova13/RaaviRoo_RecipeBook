@@ -20,6 +20,7 @@ namespace Sauraav_POE.Windows
     {
         private static bool isMessageBoxOpen = false;
         public double calories = 0;
+        public RecipeComplete currentRecipe = new RecipeComplete();
         public static void showMessageCustom(string windowName, string windowText)
         {
             if (!isMessageBoxOpen)
@@ -32,10 +33,13 @@ namespace Sauraav_POE.Windows
         }
         public static dynamic converter = new System.Windows.Media.BrushConverter();
         public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
-        public static int amountOfIngredients = AddRecipeView.currentRecipe.amountOfIngredients;
-        public static int stepsToRecipe = AddRecipeView.currentRecipe.stepsToRecipe;
-        public addIng_Step()
+        public  static int amountOfIngredients;
+        public static int stepsToRecipe;
+        public addIng_Step(RecipeComplete inputRecipe)
         {
+            currentRecipe = inputRecipe;
+            amountOfIngredients = currentRecipe.amountOfIngredients;
+            stepsToRecipe = currentRecipe.stepsToRecipe;
             InitializeComponent();
             populateUI(amountOfIngredients, stepsToRecipe);
         }
@@ -359,7 +363,7 @@ namespace Sauraav_POE.Windows
             }
             else
             {
-                AddRecipeView.currentRecipe.descriptionOfSteps = steps;
+                currentRecipe.descriptionOfSteps = steps;
                 success++;
             }
             List<Ingredient> ingredients = readTextBoxValuesIngredients();
@@ -369,11 +373,12 @@ namespace Sauraav_POE.Windows
             }
             else
             {
-                AddRecipeView.currentRecipe.ingredients = ingredients;
+                currentRecipe.ingredients = ingredients;
                 success++;
             }
             if (success == 2)
             {
+                MainWindow.allRecipes.Add(currentRecipe);
                 if (calories > 300)
                 {
                     customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
