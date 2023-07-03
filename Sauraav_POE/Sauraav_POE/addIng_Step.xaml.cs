@@ -1,26 +1,35 @@
-﻿using Sauraav_POE.MVM.View;
+﻿//Sauraav Jayrajh
+//ST10024620
+using Sauraav_POE.MVM.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Sauraav_POE;
 using Sauraav_POE_Part_2;
-using Sauraav_POE.MVM.ViewModel;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
+using System.Security.Cryptography;
 
 namespace Sauraav_POE.Windows
 {
     public partial class addIng_Step : Window
     {
+        private static bool isMessageBoxOpen = false;
+        public double calories = 0;
+        public static void showMessageCustom(string windowName, string windowText)
+        {
+            if (!isMessageBoxOpen)
+            {
+                customShowMessage showMessage = new customShowMessage(windowName, windowText);
+                showMessage.Show();
+                isMessageBoxOpen = true;
+                showMessage.Closed += (sender, args) => isMessageBoxOpen = false;
+            }
+        }
         public static dynamic converter = new System.Windows.Media.BrushConverter();
         public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
         public static int amountOfIngredients = AddRecipeView.currentRecipe.amountOfIngredients;
@@ -30,7 +39,6 @@ namespace Sauraav_POE.Windows
             InitializeComponent();
             populateUI(amountOfIngredients, stepsToRecipe);
         }
-
         public void addIngredients(int n)
         {
             StackPanel stackPanelIngredients = new StackPanel()
@@ -41,7 +49,6 @@ namespace Sauraav_POE.Windows
                 HorizontalAlignment = HorizontalAlignment.Center
 
             };
-
             Label ingredientLabel = new Label()
             {
                 Name = $"ingredientLabel_{n}",
@@ -51,7 +58,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center
             };
-
             Label ingredientLabelName = new Label()
             {
                 Name = $"ingredientLabel_{n}",
@@ -60,7 +66,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
-
             TextBox ingredientTextBoxName = new TextBox()
             {
                 Name = $"ingredientTextBox_{n}",
@@ -71,7 +76,6 @@ namespace Sauraav_POE.Windows
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
                 Tag = $"Name..."
             };
-
             Label ingredientLabelQty = new Label()
             {
                 Name = $"ingredientLabel_{n}",
@@ -80,7 +84,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
-
             TextBox ingredientTextBoxQty = new TextBox()
             {
                 Name = $"ingredientTextBox_{n}",
@@ -91,7 +94,6 @@ namespace Sauraav_POE.Windows
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
                 Tag = $"Quantity..."
             };
-
             Label ingredientLabelMeasurementUnit = new Label()
             {
                 Name = $"ingredientLabel_{n}",
@@ -100,7 +102,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
-
             ComboBox ingredientComboBoxMeasurementUnit = new ComboBox()
             {
                 Name = $"ingredientTextBox_{n}",
@@ -112,7 +113,6 @@ namespace Sauraav_POE.Windows
                 Tag = $"Unit...",
                 Items = { "Grams", "Milligrams", "Kilograms", "Milliliters", "Liters", "Tablespoons", "Teaspoons", "Cups", "Pieces", "Slices" }
             };
-
             Label ingredientLabelFoodGroup = new Label()
             {
                 Name = $"ingredientLabel_{n}",
@@ -121,7 +121,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
-
             ComboBox ingredientComboBoxFoodGroup = new ComboBox()
             {
                 Name = $"ingredientTextBox_{n}",
@@ -133,7 +132,6 @@ namespace Sauraav_POE.Windows
                 Tag = $"Food group...",
                 Items = { "Starchy foods", "Vegetables and fruits", "Dry beans, peas, lentils and soy", "Chicken, fish, meat and eggs", "Milk and dairy products", "Fats and oils", "Water" }
             };
-
             Label ingredientLabelCalories = new Label()
             {
                 Name = $"ingredientLabel_{n}",
@@ -142,7 +140,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
-
             TextBox ingredientTextBoxCalories = new TextBox()
             {
                 Name = $"ingredientTextBox_{n}",
@@ -153,7 +150,6 @@ namespace Sauraav_POE.Windows
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
                 Tag = $"Calorie count..."
             };
-
             stackPanelIngredients.Children.Add(ingredientLabel);
             stackPanelIngredients.Children.Add(ingredientLabelName);
             stackPanelIngredients.Children.Add(ingredientTextBoxName);
@@ -179,7 +175,6 @@ namespace Sauraav_POE.Windows
             grid.Children.Add(stackPanelIngredients);
             addIng_Step_Body.Children.Add(grid);
         }
-
         public void addSteps(int n)
         {
             StackPanel stackPanelSteps = new StackPanel()
@@ -197,7 +192,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center
             };
-
             Label stepLabel = new Label()
             {
                 Name = $"stepLabel_{n}",
@@ -207,7 +201,6 @@ namespace Sauraav_POE.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
-
             TextBox stepTextBox = new TextBox()
             {
                 Name = $"stepTextBox_{n}",
@@ -219,7 +212,6 @@ namespace Sauraav_POE.Windows
                 Tag = $"Enter in Step No.{n}...",
 
             };
-
             stackPanelSteps.Children.Add(stepCountLabel);
             stackPanelSteps.Children.Add(stepLabel);
             stackPanelSteps.Children.Add(stepTextBox);
@@ -250,67 +242,147 @@ namespace Sauraav_POE.Windows
             {
                 addSteps(i + 1);
             }
+        }
+        public List<Ingredient> readTextBoxValuesIngredients()
+        {
+            List<Ingredient> ingredients = new List<Ingredient>();
+            int ingredientCount = addIng_Step_Body.Children.Count;
+            for (int i = 0; i < ingredientCount; i++)
+            {
+                Grid grid = (Grid)addIng_Step_Body.Children[i];
+                StackPanel stackPanelIngredients = (StackPanel)grid.Children[1];
+                TextBox nameTextBox = (TextBox)stackPanelIngredients.Children[2];
+                TextBox quantityTextBox = (TextBox)stackPanelIngredients.Children[4];
+                ComboBox measurementUnitComboBox = (ComboBox)stackPanelIngredients.Children[6];
+                ComboBox foodGroupComboBox = (ComboBox)stackPanelIngredients.Children[8];
+                TextBox calorieCountTextBox = (TextBox)stackPanelIngredients.Children[10];
+                int badFields = 0;
+                string name = "";
+                int quantity = 0;
+                string measurementUnit = "";
+                string foodGroup = "";
+                int calorieCount = 0;
+                if (!((nameTextBox.Text.Equals("")) || (nameTextBox.Text.Equals(null))))
+                {
+                    name = nameTextBox.Text;
+                }
+                else
+                {
+                    showMessageCustom("Error", $"Please ENTER in a NAME for\nIngredient{i + 1}!");
+                    badFields++;
+                }
+                if (nullOrNumber(quantityTextBox.Text))
+                {
+                    quantity = int.Parse(quantityTextBox.Text);
+                }
+                else
+                {
+                    showMessageCustom("Error", $"Please ENTER in the quantity of\nIngredient{i + 1}!");
+                    badFields++;
+                }
+                if (!((measurementUnitComboBox.SelectedItem == null) || (measurementUnitComboBox.SelectedIndex == -1)))
+                {
+                    measurementUnit = measurementUnitComboBox.SelectedItem.ToString();
+                }
+                else
+                {
+                    showMessageCustom("Error", $"Please SELECT a MEASUREMENT UNIT for\nIngredient{i + 1}!");
+                    badFields++;
+                }
+                if (!((foodGroupComboBox.SelectedItem == null) || (foodGroupComboBox.SelectedIndex == -1)))
+                {
+                    foodGroup = foodGroupComboBox.SelectedItem.ToString();
+                }
+                else
+                {
+                    showMessageCustom("Error", $"Please SELECT a FOOD GROUP for\nIngredient{i + 1}!");
+                    badFields++;
+                }
+                if (nullOrNumber(calorieCountTextBox.Text))
+                {
+                    calorieCount = int.Parse(calorieCountTextBox.Text);
+                    calories = calories + calorieCount;
+                }
+                else
+                {
+                    showMessageCustom("Error", $"Please ENTER in the amount of CALORIES\nin Ingredient{i + 1}!");
+                    badFields++;
+                }
+                if (badFields > 0)
+                {
+                    showMessageCustom("Error", "Please COMPLETE the form PROPERLY!");
+                    return null;
+                }
+                else
+                {
+                    Ingredient ingredient = new Ingredient(name, quantity, quantity, measurementUnit, foodGroup, calorieCount);
+                    ingredients.Add(ingredient);
+                }
+            }
+            return ingredients;
 
         }
-
         public List<string> readTextBoxValuesDesc()
         {
+            int counter = 0;
             List<string> values = new List<string>();
-
             foreach (Grid grid in addIng_Step_Body_2.Children)
             {
                 StackPanel stackPanelSteps = grid.Children.OfType<StackPanel>().FirstOrDefault();
                 if (stackPanelSteps != null)
                 {
+                    counter++;
                     TextBox stepTextBox = stackPanelSteps.Children.OfType<TextBox>().FirstOrDefault();
-                    if (stepTextBox != null)
+                    if (!((stepTextBox.Text.Equals("")) || (stepTextBox.Text.Equals(null))))
                     {
                         string value = stepTextBox.Text;
                         values.Add(value);
                     }
+                    else
+                    {
+                        showMessageCustom("Error", $"Please Describe Step{counter}!");
+                        return null;
+                    }
                 }
-            }
 
+            }
             return values;
         }
 
-        public List<Ingredient> readTextBoxValuesIngredients()
-        {
-            List<Ingredient> ingredients = new List<Ingredient>();
-
-            // Get the number of ingredients added
-            int ingredientCount = addIng_Step_Body.Children.Count;
-
-            for (int i = 0; i < ingredientCount; i++)
-            {
-                Grid grid = (Grid)addIng_Step_Body.Children[i];
-                StackPanel stackPanelIngredients = (StackPanel)grid.Children[1];
-
-                // Read the values from the TextBoxes and ComboBoxes
-                string name = ((TextBox)stackPanelIngredients.Children[2]).Text;
-                int quantity = 0;
-                int.TryParse(((TextBox)stackPanelIngredients.Children[4]).Text, out quantity);
-                string measurementUnit = ((ComboBox)stackPanelIngredients.Children[6]).SelectedItem.ToString();
-                string foodGroup = ((ComboBox)stackPanelIngredients.Children[8]).SelectedItem.ToString();
-                int calorieCount = 0;
-                int.TryParse(((TextBox)stackPanelIngredients.Children[10]).Text, out calorieCount);
-
-                // Create an Ingredient object and add it to the list
-                Ingredient ingredient = new Ingredient(name, quantity, quantity, measurementUnit, foodGroup, calorieCount);
-                ingredients.Add(ingredient);
-            }
-
-            return ingredients;
-        }
-
-
-
         private void saveRecipeDetails_All(object sender, RoutedEventArgs e)
         {
-            AddRecipeView.currentRecipe.descriptionOfSteps = readTextBoxValuesDesc();
-            AddRecipeView.currentRecipe.ingredients = readTextBoxValuesIngredients();
-            customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully captured!", this);
-            csm.Show();
+            int success = 0;
+            List<string> steps = readTextBoxValuesDesc();
+            if (steps == null)
+            {
+                return;
+            }
+            else
+            {
+                AddRecipeView.currentRecipe.descriptionOfSteps = steps;
+                success++;
+            }
+            List<Ingredient> ingredients = readTextBoxValuesIngredients();
+            if (ingredients == null)
+            {
+                return;
+            }
+            else
+            {
+                AddRecipeView.currentRecipe.ingredients = ingredients;
+                success++;
+            }
+            if (success == 2)
+            {
+                if (calories > 300)
+                {
+                    customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
+                    csmCalorie.Show();
+                }
+                customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully captured!", this);
+                csm.Show();
+            }
+
 
         }
 
@@ -318,6 +390,35 @@ namespace Sauraav_POE.Windows
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        public static bool nullOrNumber(string input)
+        {
+            bool result = false;
+
+            if ((input == null || input == "") || !(isDigit(input)))
+            {
+                result = false;
+            }
+            else
+            {
+                result = true;
+            }
+            return (result);
+        }
+
+        public static bool isDigit(string input)
+        {
+            bool result = false;
+            if (input.All(char.IsDigit))
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return (result);
         }
     }
 

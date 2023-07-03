@@ -1,24 +1,15 @@
-﻿using Sauraav_POE.MVM.ViewModel;
+﻿//Sauraav Jayrajh
+//ST10024620
 using Sauraav_POE.Windows;
 using Sauraav_POE_Part_2;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Lifetime;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static Sauraav_POE.MVM.ViewModel.MainViewModel;
 
 namespace Sauraav_POE.MVM.View
 {
@@ -58,7 +49,7 @@ namespace Sauraav_POE.MVM.View
         private void saveRecipeDetails(object sender, RoutedEventArgs e)
         {
             int badFields = 0;
-            if (nullOrNumber(recipeNameTextBox.Text))
+            if (!((recipeNameTextBox.Text.Equals("")) || (recipeNameTextBox.Text.Equals(null))))
             {
                 currentRecipe.recipeName = recipeNameTextBox.Text;
             }
@@ -67,9 +58,11 @@ namespace Sauraav_POE.MVM.View
                 showMessageCustom("Error", "Please ENTER in the NAME for the\nrecipe!");
                 badFields++;
             }
-            if (nullOrNumber(new TextRange(describeRecipe.Document.ContentStart, describeRecipe.Document.ContentEnd).Text))
+            string desc = new TextRange(describeRecipe.Document.ContentStart, describeRecipe.Document.ContentEnd).Text;
+
+            if (!((desc.Equals("")) || (desc.Equals(null))))
             {
-                currentRecipe.recipeDescription = new TextRange(describeRecipe.Document.ContentStart, describeRecipe.Document.ContentEnd).Text;
+                currentRecipe.recipeDescription = desc;
             }
             else
             {
@@ -77,7 +70,7 @@ namespace Sauraav_POE.MVM.View
                 badFields++;
             }
 
-            if (nullOrNumber(recipeAuthorNameTextBox.Text))
+            if (!((recipeAuthorNameTextBox.Text.Equals("")) || (recipeAuthorNameTextBox.Text.Equals(null))))
             {
                 currentRecipe.recipeAuthor = recipeAuthorNameTextBox.Text;
             }
@@ -161,19 +154,20 @@ namespace Sauraav_POE.MVM.View
             }
             else
             {
-                showMessageCustom("Error", "Please ENTER in a valid NUMBER for the serving size!");
                 result = false;
             }
             return (result);
         }
 
-        private void clearForm() {
+        private void clearForm()
+        {
             recipeNameTextBox.Clear();
             recipeAuthorNameTextBox.Clear();
             servingSizeTextBox.Clear();
             preparationTimeTextBox.Clear();
             numberOfStepsTextBox.Clear();
             ingredientQuantityTextBox.Clear();
+            describeRecipe.Document.Blocks.Clear();
         }
     }
 }

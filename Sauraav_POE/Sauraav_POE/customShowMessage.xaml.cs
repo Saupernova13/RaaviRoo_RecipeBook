@@ -1,24 +1,14 @@
-﻿using Sauraav_POE.MVM.View;
+﻿//Sauraav Jayrajh
+//ST10024620
+using Sauraav_POE.MVM.View;
 using Sauraav_POE.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Sauraav_POE
 {
-    /// <summary>
-    /// Interaction logic for customShowMessage.xaml
-    /// </summary>
     public partial class customShowMessage : Window
     {
         public static bool isNull = false;
@@ -69,8 +59,6 @@ namespace Sauraav_POE
             textBlock.FontSize = 15;
             textBlock.Text = WindowDetails;
             textBlock.Margin = new Thickness(15, 54, 15, 69);
-
-
             grid.Children.Add(button);
             grid.Children.Add(rectangle);
             grid.Children.Add(label);
@@ -85,7 +73,6 @@ namespace Sauraav_POE
             {
                 closeThis.Close();
             }
-
         }
     }
 }
