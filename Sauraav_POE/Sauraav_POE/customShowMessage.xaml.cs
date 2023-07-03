@@ -70,7 +70,6 @@ namespace Sauraav_POE
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.allRecipes.Add(currentRecipe);
             this.Close();
             if (!isNull)
             {

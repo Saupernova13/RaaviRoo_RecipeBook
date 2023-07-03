@@ -33,7 +33,7 @@ namespace Sauraav_POE.Windows
         }
         public static dynamic converter = new System.Windows.Media.BrushConverter();
         public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
-        public  static int amountOfIngredients;
+        public static int amountOfIngredients;
         public static int stepsToRecipe;
         public addIng_Step(RecipeComplete inputRecipe)
         {
@@ -249,6 +249,12 @@ namespace Sauraav_POE.Windows
         }
         public List<Ingredient> readTextBoxValuesIngredients()
         {
+            int badFields = 0;
+            string name = "";
+            int quantity = 0;
+            string measurementUnit = "";
+            string foodGroup = "";
+            int calorieCount = 0;
             List<Ingredient> ingredients = new List<Ingredient>();
             int ingredientCount = addIng_Step_Body.Children.Count;
             for (int i = 0; i < ingredientCount; i++)
@@ -260,12 +266,6 @@ namespace Sauraav_POE.Windows
                 ComboBox measurementUnitComboBox = (ComboBox)stackPanelIngredients.Children[6];
                 ComboBox foodGroupComboBox = (ComboBox)stackPanelIngredients.Children[8];
                 TextBox calorieCountTextBox = (TextBox)stackPanelIngredients.Children[10];
-                int badFields = 0;
-                string name = "";
-                int quantity = 0;
-                string measurementUnit = "";
-                string foodGroup = "";
-                int calorieCount = 0;
                 if (!((nameTextBox.Text.Equals("")) || (nameTextBox.Text.Equals(null))))
                 {
                     name = nameTextBox.Text;
@@ -306,6 +306,7 @@ namespace Sauraav_POE.Windows
                 {
                     calorieCount = int.Parse(calorieCountTextBox.Text);
                     calories = calories + calorieCount;
+                    currentRecipe.totalCalories = calories;
                 }
                 else
                 {
@@ -322,9 +323,9 @@ namespace Sauraav_POE.Windows
                     Ingredient ingredient = new Ingredient(name, quantity, quantity, measurementUnit, foodGroup, calorieCount);
                     ingredients.Add(ingredient);
                 }
+
             }
             return ingredients;
-
         }
         public List<string> readTextBoxValuesDesc()
         {
@@ -348,7 +349,6 @@ namespace Sauraav_POE.Windows
                         return null;
                     }
                 }
-
             }
             return values;
         }
@@ -376,17 +376,18 @@ namespace Sauraav_POE.Windows
                 currentRecipe.ingredients = ingredients;
                 success++;
             }
-            if (success == 2)
+            MainWindow.allRecipes.Add(currentRecipe);
+               if (success == 2)
             {
-                MainWindow.allRecipes.Add(currentRecipe);
-                if (calories > 300)
-                {
-                    customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
-                    csmCalorie.Show();
-                }
-                customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully captured!", this);
-                csm.Show();
+
+            if (calories > 300)
+            {
+                customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
+                csmCalorie.Show();
             }
+            customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully captured!", this);
+            csm.Show();
+             }
 
 
         }

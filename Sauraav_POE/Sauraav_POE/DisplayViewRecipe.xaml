@@ -24,6 +24,10 @@
 
         <Rectangle Fill="#65394C"
                    Grid.Column="2"></Rectangle>
+        <Rectangle Fill="Transparent"
+                   Grid.Column="0"
+                   Grid.Row="1">
+        </Rectangle>
         <Rectangle Fill="#65394C"
                    Grid.Column="2"
                    Grid.Row="1"></Rectangle>
@@ -36,6 +40,20 @@
                         Margin="20,0,20,0">
             </StackPanel>
         </ScrollViewer>
+
+        <Rectangle Fill="#462834"
+                   Grid.Column="0"
+                   Grid.Row="0"></Rectangle>
+        <Button Grid.Column="0"
+                Content="&lt;----"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Foreground="White"
+                FontSize="22"
+                Margin="50,0,0,0"
+                Style="{StaticResource ModernButton}"
+                Click="exitPage"
+                Grid.Row="0" />
         <TextBlock Grid.Column="1"
                    Text="View Recipe"
                    VerticalAlignment="Top"
@@ -43,5 +61,6 @@
                    Foreground="White"
                    FontSize="22"
                    Margin="20"></TextBlock>
+
     </Grid>
 </Window>

@@ -16,7 +16,11 @@ namespace Sauraav_POE
 {
     public partial class DisplayViewRecipe : Window
     {
+        public static dynamic converter = new System.Windows.Media.BrushConverter();
+        public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
         public RecipeComplete currentRecipe;
+        public int ingredientCount = 0;
+        public int stepCount = 0;
         public DisplayViewRecipe(RecipeComplete passRecipe = null)
         {
             currentRecipe = passRecipe;
@@ -178,10 +182,208 @@ namespace Sauraav_POE
             mainGrid.Children.Add(stackPanel2);
             //Content = mainGrid;
             DisplayViewRecipes_Body.Children.Add(mainGrid);
+            ingredientCount = currentRecipe.ingredients.Count;
+            stepCount = currentRecipe.descriptionOfSteps.Count;
+            populateUI(ingredientCount, stepCount);
+        }
+
+        public void addIngredients(int n)
+        {
+            StackPanel stackPanelIngredients = new StackPanel()
+            {
+                Orientation = Orientation.Vertical,
+                Margin = new Thickness(10),
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center
+
+            };
+            Label ingredientLabel = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Ingredient No.{n}:",
+                Foreground = Brushes.White,
+                FontSize = 20,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+            Label ingredientLabelName = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Name:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            TextBox ingredientTextBoxName = new TextBox()
+            {
+                Name = $"ingredientTextBox_{n}",
+                Width = 200,
+                Height = 40,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Style = (Style)Application.Current.Resources["ModernTextBox"],
+                Tag = $"Name..."
+            };
+            Label ingredientLabelQty = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Quantity:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            TextBox ingredientTextBoxQty = new TextBox()
+            {
+                Name = $"ingredientTextBox_{n}",
+                Width = 200,
+                Height = 40,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Style = (Style)Application.Current.Resources["ModernTextBox"],
+                Tag = $"Quantity..."
+            };
+            Label ingredientLabelMeasurementUnit = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Measurement Unit:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            ComboBox ingredientComboBoxMeasurementUnit = new ComboBox()
+            {
+                Name = $"ingredientTextBox_{n}",
+                Width = 200,
+                Height = 40,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Style = (Style)Application.Current.Resources["ModernComboBox"],
+                Tag = $"Unit...",
+                Items = { "Grams", "Milligrams", "Kilograms", "Milliliters", "Liters", "Tablespoons", "Teaspoons", "Cups", "Pieces", "Slices" }
+            };
+            Label ingredientLabelFoodGroup = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Food group:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            ComboBox ingredientComboBoxFoodGroup = new ComboBox()
+            {
+                Name = $"ingredientTextBox_{n}",
+                Width = 200,
+                Height = 40,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Style = (Style)Application.Current.Resources["ModernComboBox"],
+                Tag = $"Food group...",
+                Items = { "Starchy foods", "Vegetables and fruits", "Dry beans, peas, lentils and soy", "Chicken, fish, meat and eggs", "Milk and dairy products", "Fats and oils", "Water" }
+            };
+            Label ingredientLabelCalories = new Label()
+            {
+                Name = $"ingredientLabel_{n}",
+                Content = $"Calorie count:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            TextBox ingredientTextBoxCalories = new TextBox()
+            {
+                Name = $"ingredientTextBox_{n}",
+                Width = 200,
+                Height = 40,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Style = (Style)Application.Current.Resources["ModernTextBox"],
+                Tag = $"Calorie count..."
+            };
+            stackPanelIngredients.Children.Add(ingredientLabel);
+            stackPanelIngredients.Children.Add(ingredientLabelName);
+            stackPanelIngredients.Children.Add(ingredientTextBoxName);
+            stackPanelIngredients.Children.Add(ingredientLabelQty);
+            stackPanelIngredients.Children.Add(ingredientTextBoxQty);
+            stackPanelIngredients.Children.Add(ingredientLabelMeasurementUnit);
+            stackPanelIngredients.Children.Add(ingredientComboBoxMeasurementUnit);
+            stackPanelIngredients.Children.Add(ingredientLabelFoodGroup);
+            stackPanelIngredients.Children.Add(ingredientComboBoxFoodGroup);
+            stackPanelIngredients.Children.Add(ingredientLabelCalories);
+            stackPanelIngredients.Children.Add(ingredientTextBoxCalories);
+            Grid grid = new Grid();
+            grid.Margin = new Thickness(10);
+            Rectangle rectangle = new Rectangle();
+            rectangle.Fill = brush;
+            rectangle.Height = 395;
+            rectangle.Width = 222;
+            rectangle.RadiusX = 10;
+            rectangle.RadiusY = 10;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Center;
+            rectangle.VerticalAlignment = VerticalAlignment.Center;
+            grid.Children.Add(rectangle);
+            grid.Children.Add(stackPanelIngredients);
+            DisplayViewRecipes_Body.Children.Add(grid);
+        }
+        public void addSteps(int n)
+        {
+            StackPanel stackPanelSteps = new StackPanel()
+            {
+                Orientation = Orientation.Vertical,
+                Margin = new Thickness(10)
+
+            };
+            Label stepCountLabel = new Label()
+            {
+                Name = $"stepCountLabel_{n}",
+                Content = $"Step No.{n}:",
+                Foreground = Brushes.White,
+                FontSize = 20,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+            TextBox stepTextBox = new TextBox()
+            {
+                Name = $"stepTextBox_{n}",
+                Width = 200,
+                Height = 40,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Style = (Style)Application.Current.Resources["ModernTextBox"],
+                Tag = $"Enter in Step No.{n}...",
+
+            };
+            stackPanelSteps.Children.Add(stepCountLabel);
+            stackPanelSteps.Children.Add(stepTextBox);
+            Grid grid = new Grid();
+            grid.Margin = new Thickness(10);
+            Rectangle rectangle = new Rectangle();
+            var converter = new System.Windows.Media.BrushConverter();
+            var brush = (Brush)converter.ConvertFromString("#9A311C25");
+            rectangle.Fill = brush;
+            rectangle.Height = 130;
+            rectangle.Width = 225;
+            rectangle.RadiusX = 10;
+            rectangle.RadiusY = 10;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Center;
+            rectangle.VerticalAlignment = VerticalAlignment.Center;
+            grid.Children.Add(rectangle);
+            grid.Children.Add(stackPanelSteps);
+            DisplayViewRecipes_Body.Children.Add(grid);
+        }
+
+        public void populateUI(int ingredientNo, int stepNo)
+        {
+            for (int i = 0; i < ingredientNo; i++)
+            {
+                addIngredients(i + 1);
+            }
+            for (int i = 0; i < stepNo; i++)
+            {
+                addSteps(i + 1);
+            }
         }
         private void describeRecipe_PreviewMouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
-            
+
         }
         private void onlyNumbers(object sender, TextCompositionEventArgs e)
         {
@@ -195,6 +397,11 @@ namespace Sauraav_POE
                 }
             }
         }
+        private void exitPage(object sender, RoutedEventArgs e)
+        { 
+            this.Close();
+            MessageBox.Show("Recipe has been added!");
+        }
 
-    }
+        }
 }
