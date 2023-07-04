@@ -99,7 +99,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MVM\View\EditRecipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVM\View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVM\View\HomeViewNew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,15 +151,23 @@
   <ItemGroup>
     <Compile Include="MVM\ViewModel\AddRecipeViewModel.cs" />
     <Compile Include="MVM\ViewModel\AnotherViewModel.cs" />
+    <Compile Include="MVM\ViewModel\EditRecipeViewModel.cs" />
     <Compile Include="MVM\ViewModel\HomeViewModel.cs" />
+    <Compile Include="MVM\ViewModel\HomeViewNewViewModel.cs" />
     <Compile Include="MVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVM\ViewModel\TroubleshootViewModel.cs" />
     <Compile Include="MVM\ViewModel\ViewRecipeViewModel.cs" />
     <Compile Include="MVM\View\AddRecipeView.xaml.cs">
       <DependentUpon>AddRecipeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVM\View\EditRecipeView.xaml.cs">
+      <DependentUpon>EditRecipeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVM\View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVM\View\HomeViewNew.xaml.cs">
+      <DependentUpon>HomeViewNew.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVM\View\ViewRecipeView.xaml.cs">
       <DependentUpon>ViewRecipeView.xaml</DependentUpon>

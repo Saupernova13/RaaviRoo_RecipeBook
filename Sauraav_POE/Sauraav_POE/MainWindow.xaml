@@ -50,8 +50,9 @@
                              FontSize="14"
                              Style="{StaticResource menuButtonTheme}"
                              IsChecked="True"
-                             Command="{Binding HomeViewCommand}" />
-                <RadioButton Content="Create Recipe"
+                             Command="{Binding HomeViewNewViewCommand}" />
+                <RadioButton 
+                             Content="Create Recipe"
                              Height="50"
                              Foreground="White"
                              FontSize="14"

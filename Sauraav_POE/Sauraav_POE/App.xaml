@@ -26,6 +26,12 @@
             <DataTemplate DataType="{x:Type viewModel:ViewRecipeViewModel}">
                 <view:ViewRecipeView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:HomeViewNewViewModel}">
+                <view:HomeViewNew />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EditRecipeViewModel}">
+                <view:EditRecipeView />
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -35,3 +35,7 @@ C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\S
 C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\MVM\View\ViewRecipeView.baml
 C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\DisplayViewRecipe.g.cs
 C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\DisplayViewRecipe.baml
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\MVM\View\HomeViewNew.g.cs
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\MVM\View\HomeViewNew.baml
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\MVM\View\EditRecipeView.g.cs
+C:\Users\Sauraav\Documents\GitHub\prog6221---programming-2a---poe-Saupernova13\Sauraav_POE\Sauraav_POE\obj\Debug\MVM\View\EditRecipeView.baml
