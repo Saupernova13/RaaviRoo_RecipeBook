@@ -36,9 +36,33 @@
                       Grid.Row="1"
                       Margin="10, 10 ,10 ,10"
                       x:Name="DisplayViewRecipes_Scroller">
-            <StackPanel x:Name="DisplayViewRecipes_Body"
-                        Margin="20,0,20,0">
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="DisplayViewRecipes_Body"
+                            Margin="20,0,20,0" Grid.Row="0">
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="296"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="DisplayViewRecipes_Body_Left"
+                                Margin="20,0,20,0"
+                                Grid.Row="0"
+                                Grid.Column="0">
+                    </StackPanel>
+                    <StackPanel x:Name="DisplayViewRecipes_Body_Right"
+                                Margin="0,0,20,0"
+                                Grid.Row="0"
+                                Grid.Column="1">
+                    </StackPanel>
+                </Grid>
+             
+            </Grid>
+           
         </ScrollViewer>
 
         <Rectangle Fill="#462834"

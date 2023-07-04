@@ -64,6 +64,9 @@
                         >
             </StackPanel>
         </ScrollViewer>
+        <Rectangle Fill="#462834"
+                   Grid.Column="0"
+                   Grid.Row="0"></Rectangle>
 
         <TextBlock Grid.Column="1"
                    Text="Recipe Details"
@@ -72,5 +75,16 @@
                    Foreground="White"
                    FontSize="22"
                    Margin="20"></TextBlock>
+        <Button Grid.Column="0"
+                Content="&lt;----"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Foreground="White"
+                FontSize="22"
+                Margin="50,0,0,0"
+                Style="{StaticResource ModernButton}"
+                Click="exitPage"
+                Grid.Row="0" />
+   
     </Grid>
 </Window>

@@ -62,7 +62,9 @@ namespace Sauraav_POE
             recipeNameTextBox.VerticalAlignment = VerticalAlignment.Top;
             recipeNameTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             recipeNameTextBox.Style = (Style)FindResource("ModernTextBox");
-            recipeNameTextBox.Tag = "Recipe Name...";
+            recipeNameTextBox.Text = currentRecipe.recipeName;
+            recipeNameTextBox.IsReadOnly = true;
+            ;
 
             Label authorNameLabel = new Label();
             authorNameLabel.Content = "Author Name:";
@@ -75,7 +77,8 @@ namespace Sauraav_POE
             recipeAuthorNameTextBox.VerticalAlignment = VerticalAlignment.Top;
             recipeAuthorNameTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             recipeAuthorNameTextBox.Style = (Style)FindResource("ModernTextBox");
-            recipeAuthorNameTextBox.Tag = "Author Name...";
+            recipeAuthorNameTextBox.Text = currentRecipe.recipeAuthor;
+            recipeAuthorNameTextBox.IsReadOnly = true;
 
             Label servingSizeLabel = new Label();
             servingSizeLabel.Content = "Serving Size:";
@@ -88,8 +91,9 @@ namespace Sauraav_POE
             servingSizeTextBox.VerticalAlignment = VerticalAlignment.Top;
             servingSizeTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             servingSizeTextBox.Style = (Style)FindResource("ModernTextBox");
-            servingSizeTextBox.Tag = "Serving Size...";
             servingSizeTextBox.PreviewTextInput += onlyNumbers;
+            servingSizeTextBox.Text = "" + currentRecipe.recipeServingSize;
+            servingSizeTextBox.IsReadOnly = true;
 
             Label recipeDescriptionLabel = new Label();
             recipeDescriptionLabel.Content = "Recipe Description:";
@@ -116,11 +120,13 @@ namespace Sauraav_POE
             describeRecipeRichTextBox.Margin = new Thickness(0, 5, 0, 0);
             Grid.SetRow(describeRecipeRichTextBox, 1);
             Grid.SetColumnSpan(describeRecipeRichTextBox, 2);
+            describeRecipeRichTextBox.IsReadOnly = true
+            ;
 
 
             FlowDocument flowDocument = new FlowDocument();
             Paragraph paragraph = new Paragraph();
-            paragraph.Inlines.Add(new Run("Describe the Dish..."));
+            paragraph.Inlines.Add(new Run(currentRecipe.recipeDescription));
             flowDocument.Blocks.Add(paragraph);
             describeRecipeRichTextBox.Document = flowDocument;
 
@@ -138,7 +144,8 @@ namespace Sauraav_POE
             preparationTimeTextBox.VerticalAlignment = VerticalAlignment.Top;
             preparationTimeTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             preparationTimeTextBox.Style = (Style)FindResource("ModernTextBox");
-            preparationTimeTextBox.Tag = "Enter Time in Minutes...";
+            preparationTimeTextBox.Text = "" + currentRecipe.recipeTotalTime;
+            preparationTimeTextBox.IsReadOnly = true;
             preparationTimeTextBox.PreviewTextInput += onlyNumbers;
 
             Label ingredientQuantityLabel = new Label();
@@ -152,7 +159,7 @@ namespace Sauraav_POE
             ingredientQuantityTextBox.VerticalAlignment = VerticalAlignment.Top;
             ingredientQuantityTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             ingredientQuantityTextBox.Style = (Style)FindResource("ModernTextBox");
-            ingredientQuantityTextBox.Tag = "Number of Ingredients...";
+            ingredientQuantityTextBox.Text = "" + currentRecipe.amountOfIngredients;
             ingredientQuantityTextBox.PreviewTextInput += onlyNumbers;
 
             Label numberOfStepsLabel = new Label();
@@ -166,7 +173,8 @@ namespace Sauraav_POE
             numberOfStepsTextBox.VerticalAlignment = VerticalAlignment.Top;
             numberOfStepsTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             numberOfStepsTextBox.Style = (Style)FindResource("ModernTextBox");
-            numberOfStepsTextBox.Tag = "Number of Steps...";
+            numberOfStepsTextBox.Text = "" + currentRecipe.stepsToRecipe;
+            numberOfStepsTextBox.IsReadOnly = true;
             numberOfStepsTextBox.PreviewTextInput += onlyNumbers;
 
             stackPanel2.Children.Add(preparationTimeLabel);
@@ -200,7 +208,7 @@ namespace Sauraav_POE
             Label ingredientLabel = new Label()
             {
                 Name = $"ingredientLabel_{n}",
-                Content = $"Ingredient No.{n}:",
+                Content = $"Ingredient No.{n + 1}:",
                 Foreground = Brushes.White,
                 FontSize = 20,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -214,6 +222,7 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
+
             TextBox ingredientTextBoxName = new TextBox()
             {
                 Name = $"ingredientTextBox_{n}",
@@ -222,7 +231,8 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
-                Tag = $"Name..."
+                Text = currentRecipe.ingredients[n].name,
+                IsReadOnly = true
             };
             Label ingredientLabelQty = new Label()
             {
@@ -240,7 +250,8 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
-                Tag = $"Quantity..."
+                Text = "" + currentRecipe.ingredients[n].quantity,
+                IsReadOnly = true
             };
             Label ingredientLabelMeasurementUnit = new Label()
             {
@@ -258,8 +269,8 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernComboBox"],
-                Tag = $"Unit...",
-                Items = { "Grams", "Milligrams", "Kilograms", "Milliliters", "Liters", "Tablespoons", "Teaspoons", "Cups", "Pieces", "Slices" }
+                Text = currentRecipe.ingredients[n].measurementUnit,
+                IsReadOnly = true
             };
             Label ingredientLabelFoodGroup = new Label()
             {
@@ -277,8 +288,7 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernComboBox"],
-                Tag = $"Food group...",
-                Items = { "Starchy foods", "Vegetables and fruits", "Dry beans, peas, lentils and soy", "Chicken, fish, meat and eggs", "Milk and dairy products", "Fats and oils", "Water" }
+                Text = currentRecipe.ingredients[n].foodGroup
             };
             Label ingredientLabelCalories = new Label()
             {
@@ -296,7 +306,8 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
-                Tag = $"Calorie count..."
+                Text = "" + currentRecipe.ingredients[n].calories,
+                IsReadOnly = true
             };
             stackPanelIngredients.Children.Add(ingredientLabel);
             stackPanelIngredients.Children.Add(ingredientLabelName);
@@ -317,11 +328,13 @@ namespace Sauraav_POE
             rectangle.Width = 222;
             rectangle.RadiusX = 10;
             rectangle.RadiusY = 10;
-            rectangle.HorizontalAlignment = HorizontalAlignment.Center;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Left;
             rectangle.VerticalAlignment = VerticalAlignment.Center;
+            stackPanelIngredients.HorizontalAlignment = HorizontalAlignment.Left;
+            stackPanelIngredients.VerticalAlignment = VerticalAlignment.Center;
             grid.Children.Add(rectangle);
             grid.Children.Add(stackPanelIngredients);
-            DisplayViewRecipes_Body.Children.Add(grid);
+            DisplayViewRecipes_Body_Left.Children.Add(grid);
         }
         public void addSteps(int n)
         {
@@ -334,11 +347,19 @@ namespace Sauraav_POE
             Label stepCountLabel = new Label()
             {
                 Name = $"stepCountLabel_{n}",
-                Content = $"Step No.{n}:",
+                Content = $"Step No.{n + 1}:",
                 Foreground = Brushes.White,
                 FontSize = 20,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center
+            };
+            Label stepDescLabel = new Label()
+            {
+                Name = $"stepCountLabel_{n}",
+                Content = $"Description:",
+                Foreground = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left
             };
             TextBox stepTextBox = new TextBox()
             {
@@ -348,10 +369,12 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
-                Tag = $"Enter in Step No.{n}...",
+                Text = currentRecipe.descriptionOfSteps[n],
+                IsReadOnly = true
 
             };
             stackPanelSteps.Children.Add(stepCountLabel);
+            stackPanelSteps.Children.Add(stepDescLabel);
             stackPanelSteps.Children.Add(stepTextBox);
             Grid grid = new Grid();
             grid.Margin = new Thickness(10);
@@ -363,22 +386,24 @@ namespace Sauraav_POE
             rectangle.Width = 225;
             rectangle.RadiusX = 10;
             rectangle.RadiusY = 10;
-            rectangle.HorizontalAlignment = HorizontalAlignment.Center;
+            rectangle.HorizontalAlignment = HorizontalAlignment.Left;
             rectangle.VerticalAlignment = VerticalAlignment.Center;
+            stackPanelSteps.HorizontalAlignment = HorizontalAlignment.Left;
+            stackPanelSteps.VerticalAlignment = VerticalAlignment.Center;
             grid.Children.Add(rectangle);
             grid.Children.Add(stackPanelSteps);
-            DisplayViewRecipes_Body.Children.Add(grid);
+            DisplayViewRecipes_Body_Right.Children.Add(grid);
         }
 
         public void populateUI(int ingredientNo, int stepNo)
         {
             for (int i = 0; i < ingredientNo; i++)
             {
-                addIngredients(i + 1);
+                addIngredients(i);
             }
             for (int i = 0; i < stepNo; i++)
             {
-                addSteps(i + 1);
+                addSteps(i);
             }
         }
         private void describeRecipe_PreviewMouseLeftButtonDown(object sender, RoutedEventArgs e)
@@ -398,10 +423,9 @@ namespace Sauraav_POE
             }
         }
         private void exitPage(object sender, RoutedEventArgs e)
-        { 
+        {
             this.Close();
-            MessageBox.Show("Recipe has been added!");
         }
 
-        }
+    }
 }

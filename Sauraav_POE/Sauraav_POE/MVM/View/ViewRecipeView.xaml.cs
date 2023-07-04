@@ -71,7 +71,6 @@ namespace Sauraav_POE.MVM.View
 
         private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Clicked");
             DisplayViewRecipe displayVR = new DisplayViewRecipe(MainWindow.allRecipes[index]);
             displayVR.Show();
         }

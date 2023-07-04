@@ -377,17 +377,17 @@ namespace Sauraav_POE.Windows
                 success++;
             }
             MainWindow.allRecipes.Add(currentRecipe);
-               if (success == 2)
+            if (success == 2)
             {
 
-            if (calories > 300)
-            {
-                customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
-                csmCalorie.Show();
+                if (calories > 300)
+                {
+                    customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
+                    csmCalorie.Show();
+                }
+                customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully captured!", this);
+                csm.Show();
             }
-            customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully captured!", this);
-            csm.Show();
-             }
 
 
         }
@@ -425,6 +425,11 @@ namespace Sauraav_POE.Windows
                 result = false;
             }
             return (result);
+        }
+
+        private void exitPage(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 
