@@ -7,10 +7,14 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
-             >
+             Background="#65394C">
 
-    <Grid>
-
+    <Grid Name="editRecipesList"
+          Margin="10">
+        <ScrollViewer>
+            <StackPanel Name="viewRecipesList_StackPnl"
+                        Margin="10"></StackPanel>
+        </ScrollViewer>
     </Grid>
 
 </UserControl>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Sauraav Jayrajh
+//ST10024620
+using Sauraav_POE_Part_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +18,67 @@ using System.Windows.Shapes;
 
 namespace Sauraav_POE.MVM.View
 {
-    /// <summary>
-    /// Interaction logic for EditRecipeView.xaml
-    /// </summary>
     public partial class EditRecipeView
     {
+        public int index;
+        public List<string> items;
+        public List<RecipeComplete> listRecipe;
         public EditRecipeView()
         {
+            listRecipe = MainWindow.allRecipes;
             InitializeComponent();
+            for (int i = 0; i < MainWindow.allRecipes.Count; i++)
+            {
+
+                addLists(i);
+            }
+        }
+        public void addLists(int n)
+        {
+            index = n;
+            StackPanel stackPanelSteps = new StackPanel()
+            {
+                Orientation = Orientation.Vertical,
+                Margin = new Thickness(0)
+
+            };
+            Label recipeNameLabel = new Label()
+            {
+                Name = $"recipeNameLabel_{n}",
+                Content = $"Recipe No.{n + 1}: {(listRecipe[n]?.recipeName ?? "")}",
+                Foreground = Brushes.White,
+                Margin = new Thickness(0, 8, 0, 0),
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+
+            Rectangle rectangle = new Rectangle()
+            {
+                Fill = new SolidColorBrush(Color.FromArgb(154, 49, 28, 37)),
+                Height = 40,
+                Width = 500,
+                RadiusX = 10,
+                RadiusY = 10,
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+            };
+            rectangle.MouseLeftButtonDown += Rectangle_MouseLeftButtonDown;
+
+            Grid grid = new Grid()
+            {
+                Margin = new Thickness(10)
+            };
+            grid.Children.Add(rectangle);
+            grid.Children.Add(recipeNameLabel);
+
+            stackPanelSteps.Children.Add(grid);
+            viewRecipesList_StackPnl.Children.Add(stackPanelSteps);
+        }
+
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           EditViewRecipe displayER = new EditViewRecipe(MainWindow.allRecipes[index]);
+            displayER.Show();
         }
     }
 }
