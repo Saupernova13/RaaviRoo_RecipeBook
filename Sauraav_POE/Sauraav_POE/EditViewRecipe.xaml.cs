@@ -26,13 +26,13 @@ namespace Sauraav_POE
         public int ingredientCount = 0;
         public int stepCount = 0;
         private static bool isMessageBoxOpen = false;
-        private TextBox recipeNameTextBox;
-        private TextBox recipeAuthorNameTextBox;
-        private TextBox servingSizeTextBox;
-        private RichTextBox describeRecipeRichTextBox;
-        private TextBox preparationTimeTextBox;
-        private TextBox ingredientQuantityTextBox;
-        private TextBox numberOfStepsTextBox;
+        private TextBox recipeNameTextBox = new TextBox();
+        private TextBox recipeAuthorNameTextBox = new TextBox();
+        private TextBox servingSizeTextBox  = new TextBox();
+        private RichTextBox describeRecipeRichTextBox = new RichTextBox();
+        private TextBox preparationTimeTextBox = new TextBox();
+        private TextBox ingredientQuantityTextBox = new TextBox();
+        private TextBox numberOfStepsTextBox = new TextBox();
 
         public static void showMessageCustom(string windowName, string windowText)
         {
