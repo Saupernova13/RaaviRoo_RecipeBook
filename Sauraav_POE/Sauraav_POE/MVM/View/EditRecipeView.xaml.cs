@@ -15,33 +15,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace Sauraav_POE.MVM.View
 {
     public partial class EditRecipeView
     {
-        public int index;
-        public List<string> items;
         public List<RecipeComplete> listRecipe;
+
         public EditRecipeView()
         {
             listRecipe = MainWindow.allRecipes;
             InitializeComponent();
             for (int i = 0; i < MainWindow.allRecipes.Count; i++)
             {
-
                 addLists(i);
             }
         }
+
         public void addLists(int n)
         {
-            index = n;
             StackPanel stackPanelSteps = new StackPanel()
             {
                 Orientation = Orientation.Vertical,
                 Margin = new Thickness(0)
-
             };
+
             Label recipeNameLabel = new Label()
             {
                 Name = $"recipeNameLabel_{n}",
@@ -62,7 +59,13 @@ namespace Sauraav_POE.MVM.View
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
             };
-            rectangle.MouseLeftButtonDown += Rectangle_MouseLeftButtonDown;
+
+            // Use a lambda expression to capture the correct index value
+            rectangle.MouseLeftButtonDown += (sender, e) =>
+            {
+                EditViewRecipe displayER = new EditViewRecipe(MainWindow.allRecipes[n], n);
+                displayER.Show();
+            };
 
             Grid grid = new Grid()
             {
@@ -74,11 +77,6 @@ namespace Sauraav_POE.MVM.View
             stackPanelSteps.Children.Add(grid);
             viewRecipesList_StackPnl.Children.Add(stackPanelSteps);
         }
-
-        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-           EditViewRecipe displayER = new EditViewRecipe(MainWindow.allRecipes[index]);
-            displayER.Show();
-        }
     }
 }
+

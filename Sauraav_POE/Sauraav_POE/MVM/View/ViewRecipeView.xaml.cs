@@ -11,31 +11,28 @@ using System.Windows.Shapes;
 
 namespace Sauraav_POE.MVM.View
 {
-
     public partial class ViewRecipeView
     {
-        public int index;
-        public List<string> items;
         public List<RecipeComplete> listRecipe;
+
         public ViewRecipeView()
         {
             listRecipe = MainWindow.allRecipes;
             InitializeComponent();
             for (int i = 0; i < MainWindow.allRecipes.Count; i++)
             {
-
                 addLists(i);
             }
         }
+
         public void addLists(int n)
         {
-            index = n;
             StackPanel stackPanelSteps = new StackPanel()
             {
                 Orientation = Orientation.Vertical,
                 Margin = new Thickness(0)
-
             };
+
             Label recipeNameLabel = new Label()
             {
                 Name = $"recipeNameLabel_{n}",
@@ -56,7 +53,12 @@ namespace Sauraav_POE.MVM.View
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
             };
-            rectangle.MouseLeftButtonDown += Rectangle_MouseLeftButtonDown;
+
+            rectangle.MouseLeftButtonDown += (sender, e) =>
+            {
+                DisplayViewRecipe displayVR = new DisplayViewRecipe(MainWindow.allRecipes[n]);
+                displayVR.Show();
+            };
 
             Grid grid = new Grid()
             {
@@ -68,11 +70,6 @@ namespace Sauraav_POE.MVM.View
             stackPanelSteps.Children.Add(grid);
             viewRecipesList_StackPnl.Children.Add(stackPanelSteps);
         }
-
-        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DisplayViewRecipe displayVR = new DisplayViewRecipe(MainWindow.allRecipes[index]);
-            displayVR.Show();
-        }
     }
 }
+
