@@ -430,6 +430,7 @@ namespace Sauraav_POE.Windows
         private void exitPage(object sender, RoutedEventArgs e)
         {
             this.Close();
+
         }
     }
 

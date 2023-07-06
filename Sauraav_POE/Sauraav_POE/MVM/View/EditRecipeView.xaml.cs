@@ -25,6 +25,17 @@ namespace Sauraav_POE.MVM.View
         {
             listRecipe = MainWindow.allRecipes;
             InitializeComponent();
+            Label formLabel = new Label()
+            {
+                Name = $"formLabel",
+                Content = $"Edit Recipes:",
+                Foreground = Brushes.White,
+                Margin = new Thickness(0, 0, 0, 0),
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Left,
+                FontSize = 20
+            };
+            viewRecipesList_StackPnl.Children.Add(formLabel);
             for (int i = 0; i < MainWindow.allRecipes.Count; i++)
             {
                 addLists(i);

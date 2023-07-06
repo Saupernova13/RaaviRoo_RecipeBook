@@ -1,5 +1,6 @@
 ﻿//Sauraav Jayrajh
 //ST10024620
+using Sauraav_POE.MVM.ViewModel;
 using Sauraav_POE.Windows;
 using Sauraav_POE_Part_2;
 using System;
@@ -45,6 +46,11 @@ namespace Sauraav_POE.MVM.View
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+
+
+
+
 
         private void saveRecipeDetails(object sender, RoutedEventArgs e)
         {
@@ -128,6 +134,10 @@ namespace Sauraav_POE.MVM.View
                 newWindow.Show();
             }
             clearForm();
+
+            var mainWindow = Window.GetWindow(this) as MainWindow;
+            var mainViewModel = mainWindow.DataContext as MainViewModel;
+            mainViewModel.CurrentView = mainViewModel.HomeViewNewVM;
         }
 
         public static bool nullOrNumber(string input)

@@ -60,6 +60,9 @@
     <Compile Include="addIng_Step.xaml.cs">
       <DependentUpon>addIng_Step.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ScaleViewRecipe.xaml.cs">
+      <DependentUpon>ScaleViewRecipe.xaml</DependentUpon>
+    </Compile>
     <Page Include="customShowMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,7 +121,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVM\View\PieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVM\View\ScaleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVM\View\ViewRecipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScaleViewRecipe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +177,8 @@
     <Compile Include="MVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVM\ViewModel\HomeViewNewViewModel.cs" />
     <Compile Include="MVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVM\ViewModel\PieViewModel.cs" />
+    <Compile Include="MVM\ViewModel\ScaleViewModel.cs" />
     <Compile Include="MVM\ViewModel\TroubleshootViewModel.cs" />
     <Compile Include="MVM\ViewModel\ViewRecipeViewModel.cs" />
     <Compile Include="MVM\View\AddRecipeView.xaml.cs">
@@ -175,6 +192,12 @@
     </Compile>
     <Compile Include="MVM\View\HomeViewNew.xaml.cs">
       <DependentUpon>HomeViewNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVM\View\PieView.xaml.cs">
+      <DependentUpon>PieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVM\View\ScaleView.xaml.cs">
+      <DependentUpon>ScaleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVM\View\ViewRecipeView.xaml.cs">
       <DependentUpon>ViewRecipeView.xaml</DependentUpon>

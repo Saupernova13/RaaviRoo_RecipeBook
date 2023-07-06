@@ -1,9 +1,9 @@
-﻿<Window x:Class="Sauraav_POE.DisplayViewRecipe"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sauraav_POE"
+﻿<Window x:Class="Sauraav_POE.ScaleViewRecipe"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sauraav_POE"
         mc:Ignorable="d"
         Height="600"
         Width="920"
@@ -12,6 +12,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
@@ -23,12 +24,10 @@
         </Grid.RowDefinitions>
 
         <Rectangle Fill="#65394C"
-                   Grid.Column="2"
-                   RadiusX="15"
-                   RadiusY="15"></Rectangle>
+                   Grid.Column="2" RadiusX="10" RadiusY="10"></Rectangle>
         <Rectangle Fill="Transparent"
                    Grid.Column="0"
-                   Grid.Row="1">
+                   Grid.Row="1" >
         </Rectangle>
         <Rectangle Fill="#65394C"
                    Grid.Column="2"
@@ -40,33 +39,8 @@
                       Grid.Row="1"
                       Margin="10, 10 ,10 ,10"
                       x:Name="DisplayViewRecipes_Scroller">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <StackPanel x:Name="DisplayViewRecipes_Body"
-                            Margin="20,0,20,0" Grid.Row="0">
-                </StackPanel>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="296"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel x:Name="DisplayViewRecipes_Body_Left"
-                                Margin="20,0,20,0"
-                                Grid.Row="0"
-                                Grid.Column="0">
-                    </StackPanel>
-                    <StackPanel x:Name="DisplayViewRecipes_Body_Right"
-                                Margin="0,0,20,0"
-                                Grid.Row="0"
-                                Grid.Column="1">
-                    </StackPanel>
-                </Grid>
-             
-            </Grid>
-           
+            <StackPanel Name="viewScaledList_StackPnl"
+                        Margin="10"></StackPanel>
         </ScrollViewer>
 
         <Rectangle Fill="#462834"
@@ -85,7 +59,7 @@
                 Click="exitPage"
                 Grid.Row="0" />
         <TextBlock Grid.Column="1"
-                   Text="View Recipe"
+                   Text="Scale Recipe"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Foreground="White"

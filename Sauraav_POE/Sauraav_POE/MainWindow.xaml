@@ -30,11 +30,13 @@
             <Rectangle Fill="#9A311C25"
                        IsHitTestVisible="False"
                        Grid.Column="0"
-                       Grid.Row="1" />
+                       Grid.Row="1"
+                   />
             <Rectangle Fill="#9A311C25"
                        IsHitTestVisible="False"
                        Grid.Column="0"
-                       Grid.Row="0" />
+                       Grid.Row="0"
+                   />
             <TextBlock Grid.Column="0"
                        Text="Roooo Recipe"
                        VerticalAlignment="Center"
@@ -74,17 +76,14 @@
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource menuButtonTheme}" />
-                <RadioButton Content="Reset Recipes"
+                             Style="{StaticResource menuButtonTheme}"
+                             Command="{Binding ScaleViewCommand}" />
+                <RadioButton Content="Menus"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource menuButtonTheme}" />
-                <RadioButton Content="Delete Recipes"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource menuButtonTheme}" />
+                             Style="{StaticResource menuButtonTheme}"
+                             Command="{Binding PieViewCommand}" />
                 <RadioButton Content="Close Program"
                              Height="50"
                              Foreground="White"

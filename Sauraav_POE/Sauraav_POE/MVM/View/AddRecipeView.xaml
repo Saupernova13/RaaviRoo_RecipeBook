@@ -27,7 +27,7 @@
                          VerticalAlignment="Top"
                          HorizontalAlignment="Left"
                          Style="{StaticResource ModernTextBox}"
-                         Tag="Recipe Name..."/>
+                         Tag="Recipe Name..." />
 
                 <Label Content="Author Name:"
                        Foreground="White"></Label>
@@ -87,7 +87,7 @@
                          PreviewTextInput="onlyNumbers" />
 
 
-            
+
                 <Label Content="Number of Ingredients:"
                        Foreground="White"></Label>
                 <TextBox x:Name="ingredientQuantityTextBox"
@@ -114,7 +114,7 @@
             <Button Grid.Column="1"
                     Content="Next"
                     HorizontalAlignment="Left"
-                    Margin="280,211,0,0"
+                    Margin="100,211,0,0"
                     Grid.Row="1"
                     VerticalAlignment="Top"
                     Style="{StaticResource ModernButton}"

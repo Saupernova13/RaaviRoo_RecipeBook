@@ -1,4 +1,6 @@
-﻿using Sauraav_POE.Windows;
+﻿//Sauraav Jayrajh
+//ST10024620
+using Sauraav_POE.Windows;
 using Sauraav_POE_Part_2;
 using System;
 using System.Collections.Generic;
@@ -15,7 +17,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace Sauraav_POE
 {
     public partial class EditViewRecipe : Window
@@ -37,7 +38,7 @@ namespace Sauraav_POE
         private TextBox preparationTimeTextBox = new TextBox();
         private TextBox ingredientQuantityTextBox = new TextBox();
         private TextBox numberOfStepsTextBox = new TextBox();
-        public int parser=0;
+        public int parser = 0;
         public static void showMessageCustom(string windowName, string windowText)
         {
             if (!isMessageBoxOpen)
@@ -50,47 +51,38 @@ namespace Sauraav_POE
         }
         public EditViewRecipe(RecipeComplete passRecipe = null, dynamic index = null)
         {
-            
             importedRecipe = passRecipe;
             InitializeComponent();
             DisplayEditRecipes_Body.Children.Clear();
             DisplayEditRecipes_Body_Left.Children.Clear();
             DisplayEditRecipes_Body_Right.Children.Clear();
-            duplicateRecipeList= MainWindow.allRecipes;
+            duplicateRecipeList = MainWindow.allRecipes;
             toEditRecipe = duplicateRecipeList[index];
             addHeader();
             parser = index;
-           
-            populateUI(passRecipe.amountOfIngredients, passRecipe.stepsToRecipe);
-
+            populateUI(importedRecipe.amountOfIngredients, importedRecipe.stepsToRecipe);
         }
         private void addHeader()
         {
             Grid mainGrid = new Grid();
             mainGrid.Margin = new Thickness(10);
-
             ColumnDefinition column1 = new ColumnDefinition();
             column1.Width = new GridLength(300);
             ColumnDefinition column2 = new ColumnDefinition();
             column2.Width = GridLength.Auto;
-
             RowDefinition row1 = new RowDefinition();
             row1.Height = GridLength.Auto;
             RowDefinition row2 = new RowDefinition();
             row2.Height = GridLength.Auto;
-
             mainGrid.ColumnDefinitions.Add(column1);
             mainGrid.ColumnDefinitions.Add(column2);
             mainGrid.RowDefinitions.Add(row1);
             mainGrid.RowDefinitions.Add(row2);
-
             StackPanel stackPanel = new StackPanel();
             Grid.SetColumn(stackPanel, 0);
-
             Label recipeNameLabel = new Label();
             recipeNameLabel.Content = "Recipe Name:";
             recipeNameLabel.Foreground = Brushes.White;
-
             recipeNameTextBox.Name = "recipeNameTextBox";
             recipeNameTextBox.Width = 200;
             recipeNameTextBox.Height = 40;
@@ -98,12 +90,9 @@ namespace Sauraav_POE
             recipeNameTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             recipeNameTextBox.Style = (Style)FindResource("ModernTextBox");
             recipeNameTextBox.Text = importedRecipe.recipeName;
-            ;
-
             Label authorNameLabel = new Label();
             authorNameLabel.Content = "Author Name:";
             authorNameLabel.Foreground = Brushes.White;
-
             recipeAuthorNameTextBox.Name = "recipeAuthorNameTextBox";
             recipeAuthorNameTextBox.Width = 200;
             recipeAuthorNameTextBox.Height = 40;
@@ -111,11 +100,9 @@ namespace Sauraav_POE
             recipeAuthorNameTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             recipeAuthorNameTextBox.Style = (Style)FindResource("ModernTextBox");
             recipeAuthorNameTextBox.Text = importedRecipe.recipeAuthor;
-
             Label servingSizeLabel = new Label();
             servingSizeLabel.Content = "Serving Size:";
             servingSizeLabel.Foreground = Brushes.White;
-
             servingSizeTextBox.Name = "servingSizeTextBox";
             servingSizeTextBox.Width = 200;
             servingSizeTextBox.Height = 40;
@@ -124,11 +111,9 @@ namespace Sauraav_POE
             servingSizeTextBox.Style = (Style)FindResource("ModernTextBox");
             servingSizeTextBox.PreviewTextInput += onlyNumbers;
             servingSizeTextBox.Text = "" + importedRecipe.recipeServingSize;
-
             Label recipeDescriptionLabel = new Label();
             recipeDescriptionLabel.Content = "Recipe Description:";
             recipeDescriptionLabel.Foreground = Brushes.White;
-
             stackPanel.Children.Add(recipeNameLabel);
             stackPanel.Children.Add(recipeNameTextBox);
             stackPanel.Children.Add(authorNameLabel);
@@ -149,22 +134,16 @@ namespace Sauraav_POE
             describeRecipeRichTextBox.Margin = new Thickness(0, 5, 0, 0);
             Grid.SetRow(describeRecipeRichTextBox, 1);
             Grid.SetColumnSpan(describeRecipeRichTextBox, 2);
-            ;
-
-
             FlowDocument flowDocument = new FlowDocument();
             Paragraph paragraph = new Paragraph();
             paragraph.Inlines.Add(new Run(importedRecipe.recipeDescription));
             flowDocument.Blocks.Add(paragraph);
             describeRecipeRichTextBox.Document = flowDocument;
-
             StackPanel stackPanel2 = new StackPanel();
             Grid.SetColumn(stackPanel2, 1);
-
             Label preparationTimeLabel = new Label();
             preparationTimeLabel.Content = "Preparation Time:";
             preparationTimeLabel.Foreground = Brushes.White;
-
             preparationTimeTextBox.Name = "preparationTimeTextBox";
             preparationTimeTextBox.Width = 200;
             preparationTimeTextBox.Height = 40;
@@ -173,11 +152,9 @@ namespace Sauraav_POE
             preparationTimeTextBox.Style = (Style)FindResource("ModernTextBox");
             preparationTimeTextBox.Text = "" + importedRecipe.recipeTotalTime;
             preparationTimeTextBox.PreviewTextInput += onlyNumbers;
-
             Label ingredientQuantityLabel = new Label();
             ingredientQuantityLabel.Content = "Number of Ingredients:";
             ingredientQuantityLabel.Foreground = Brushes.White;
-
             ingredientQuantityTextBox.Name = "ingredientQuantityTextBox";
             ingredientQuantityTextBox.Width = 200;
             ingredientQuantityTextBox.Height = 40;
@@ -186,11 +163,10 @@ namespace Sauraav_POE
             ingredientQuantityTextBox.Style = (Style)FindResource("ModernTextBox");
             ingredientQuantityTextBox.Text = "" + importedRecipe.amountOfIngredients;
             ingredientQuantityTextBox.PreviewTextInput += onlyNumbers;
-
+            ingredientQuantityTextBox.IsReadOnly = true;
             Label numberOfStepsLabel = new Label();
             numberOfStepsLabel.Content = "Number of Steps:";
             numberOfStepsLabel.Foreground = Brushes.White;
-
             numberOfStepsTextBox.Name = "numberOfStepsTextBox";
             numberOfStepsTextBox.Width = 200;
             numberOfStepsTextBox.Height = 40;
@@ -199,21 +175,18 @@ namespace Sauraav_POE
             numberOfStepsTextBox.Style = (Style)FindResource("ModernTextBox");
             numberOfStepsTextBox.Text = "" + importedRecipe.stepsToRecipe;
             numberOfStepsTextBox.PreviewTextInput += onlyNumbers;
-
+            numberOfStepsTextBox.IsReadOnly = true;
             stackPanel2.Children.Add(preparationTimeLabel);
             stackPanel2.Children.Add(preparationTimeTextBox);
             stackPanel2.Children.Add(ingredientQuantityLabel);
             stackPanel2.Children.Add(ingredientQuantityTextBox);
             stackPanel2.Children.Add(numberOfStepsLabel);
             stackPanel2.Children.Add(numberOfStepsTextBox);
-
-
             mainGrid.Children.Add(stackPanel);
             mainGrid.Children.Add(describeRecipeRichTextBox);
             mainGrid.Children.Add(stackPanel2);
             DisplayEditRecipes_Body.Children.Add(mainGrid);
         }
-
         public void addIngredients(int n)
         {
             StackPanel stackPanelIngredients = new StackPanel()
@@ -289,10 +262,8 @@ namespace Sauraav_POE
                 Items = { "Grams", "Milligrams", "Kilograms", "Milliliters", "Liters", "Tablespoons", "Teaspoons", "Cups", "Pieces", "Slices" },
                 IsReadOnly = true
             };
-
             switch (importedRecipe.ingredients[n].measurementUnit)
             {
-
                 case "Grams":
                     ingredientComboBoxMeasurementUnit.SelectedIndex = 0;
                     break;
@@ -422,7 +393,6 @@ namespace Sauraav_POE
             {
                 Orientation = Orientation.Vertical,
                 Margin = new Thickness(10)
-
             };
             Label stepCountLabel = new Label()
             {
@@ -450,7 +420,6 @@ namespace Sauraav_POE
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Style = (Style)Application.Current.Resources["ModernTextBox"],
                 Text = importedRecipe.descriptionOfSteps[n]
-
             };
             stackPanelSteps.Children.Add(stepCountLabel);
             stackPanelSteps.Children.Add(stepDescLabel);
@@ -487,7 +456,6 @@ namespace Sauraav_POE
         }
         private void describeRecipe_PreviewMouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
-
         }
         private void onlyNumbers(object sender, TextCompositionEventArgs e)
         {
@@ -504,12 +472,10 @@ namespace Sauraav_POE
         {
             this.Close();
         }
-
         private void saveChanges(object sender, RoutedEventArgs e)
         {
             saveRecipeDetails();
         }
-
         private void saveRecipeDetails()
         {
             int badFields = 0;
@@ -533,7 +499,6 @@ namespace Sauraav_POE
                 showMessageCustom("Error", "Please ENTER in a DESCRIPTION for the\nrecipe!");
                 badFields++;
             }
-
             if (!((recipeAuthorNameTextBox.Text.Equals("")) || (recipeAuthorNameTextBox.Text.Equals(null))))
             {
                 currentRecipe.recipeAuthor = recipeAuthorNameTextBox.Text;
@@ -552,7 +517,6 @@ namespace Sauraav_POE
                 showMessageCustom("Error", "Please ENTER in a valid NUMBER for the\nserving size!");
                 badFields++;
             }
-
             if (nullOrNumber(preparationTimeTextBox.Text))
             {
                 currentRecipe.recipeTotalTime = Convert.ToDouble(preparationTimeTextBox.Text);
@@ -562,7 +526,6 @@ namespace Sauraav_POE
                 showMessageCustom("Error", "Please ENTER in a valid amount of TIME\nto make the recipe!");
                 badFields++;
             }
-
             if (nullOrNumber(numberOfStepsTextBox.Text))
             {
                 currentRecipe.stepsToRecipe = Int32.Parse(numberOfStepsTextBox.Text);
@@ -572,7 +535,6 @@ namespace Sauraav_POE
                 showMessageCustom("Error", "Please ENTER in HOW MANY steps this\nrecipe will have!");
                 badFields++;
             }
-
             if (nullOrNumber(ingredientQuantityTextBox.Text))
             {
                 currentRecipe.amountOfIngredients = Int32.Parse(ingredientQuantityTextBox.Text);
@@ -589,11 +551,9 @@ namespace Sauraav_POE
             else
             {
                 saveRecipeDetails_All();
-               
+
             }
         }
-
-
         public List<Ingredient> readTextBoxValuesIngredients()
         {
             int badFields = 0;
@@ -670,7 +630,6 @@ namespace Sauraav_POE
                     Ingredient ingredient = new Ingredient(name, quantity, quantity, measurementUnit, foodGroup, calorieCount);
                     ingredients.Add(ingredient);
                 }
-
             }
             return ingredients;
         }
@@ -699,7 +658,6 @@ namespace Sauraav_POE
             }
             return values;
         }
-
         private void saveRecipeDetails_All()
         {
             int success = 0;
@@ -723,13 +681,22 @@ namespace Sauraav_POE
                 currentRecipe.ingredients = ingredients;
                 success++;
             }
-            toEditRecipe=currentRecipe;
-            duplicateRecipeList[parser]=toEditRecipe;
+            toEditRecipe = currentRecipe;
+            duplicateRecipeList[parser] = toEditRecipe;
             mainClass.allRecipes = duplicateRecipeList;
+            int dupIngNum = duplicateRecipeList[parser].ingredients.Count;
+            int mainIngNum = mainClass.allRecipes[parser].ingredients.Count;
+            if (dupIngNum > mainIngNum)
+            {
+                int diff = dupIngNum - mainIngNum;
+                Ingredient emptyIng = new Ingredient("", 0, 0, "", "", 0);
+                for (int i = 0; i < diff; i++)
+                {
+                    mainClass.allRecipes[parser].ingredients.Add(emptyIng);
+                }
+            }
             if (success == 2)
             {
-                importedRecipe = currentRecipe;
-
                 if (calories > 300)
                 {
                     customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
@@ -743,7 +710,6 @@ namespace Sauraav_POE
         public static bool nullOrNumber(string input)
         {
             bool result = false;
-
             if ((input == null || input == "") || !(isDigit(input)))
             {
                 result = false;
@@ -754,7 +720,6 @@ namespace Sauraav_POE
             }
             return (result);
         }
-
         public static bool isDigit(string input)
         {
             bool result = false;
@@ -768,7 +733,5 @@ namespace Sauraav_POE
             }
             return (result);
         }
-
-
     }
 }

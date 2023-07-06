@@ -32,6 +32,12 @@
             <DataTemplate DataType="{x:Type viewModel:EditRecipeViewModel}">
                 <view:EditRecipeView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ScaleViewModel}">
+                <view:ScaleView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:PieViewModel}">
+                <view:PieView />
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

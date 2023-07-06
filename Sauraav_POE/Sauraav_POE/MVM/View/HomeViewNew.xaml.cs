@@ -19,9 +19,6 @@ using System.Windows.Shapes;
 
 namespace Sauraav_POE.MVM.View
 {
-    /// <summary>
-    /// Interaction logic for HomeViewNew.xaml
-    /// </summary>
     public partial class HomeViewNew
     {
         public HomeViewNew()
