@@ -60,10 +60,17 @@
     <Compile Include="addIng_Step.xaml.cs">
       <DependentUpon>addIng_Step.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddMenuPie.xaml.cs">
+      <DependentUpon>AddMenuPie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ScaleViewRecipe.xaml.cs">
       <DependentUpon>ScaleViewRecipe.xaml</DependentUpon>
     </Compile>
-    <Page Include="customShowMessage.xaml">
+    <Page Include="AddMenuPie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomShowMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,8 +99,8 @@
     <Compile Include="Core\RecipeActions.cs" />
     <Compile Include="Core\RecipeComplete.cs" />
     <Compile Include="Core\RelayCommand.cs" />
-    <Compile Include="customShowMessage.xaml.cs">
-      <DependentUpon>customShowMessage.xaml</DependentUpon>
+    <Compile Include="CustomShowMessage.xaml.cs">
+      <DependentUpon>CustomShowMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DisplayViewRecipe.xaml.cs">
       <DependentUpon>DisplayViewRecipe.xaml</DependentUpon>

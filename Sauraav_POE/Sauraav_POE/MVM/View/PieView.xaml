@@ -12,7 +12,7 @@
     <Grid Name="editRecipesList"
           Margin="10">
         <ScrollViewer>
-            <StackPanel Name="viewRecipesList_StackPnl"
+            <StackPanel Name="viewMenuList_StackPnl"
                         Margin="10"></StackPanel>
         </ScrollViewer>
     </Grid>
