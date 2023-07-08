@@ -105,24 +105,41 @@ namespace Sauraav_POE
 
         private void saveMenuDetals(object sender, RoutedEventArgs e)
         {
-            if (!((menuNameTextBox.Text.Equals("")) || (menuNameTextBox.Text.Equals(null))))
+            int counter = 0;
+            for (int i = 0; i < checkBoxes.Count; i++)
             {
-                Names.Add(menuNameTextBox.Text);
-                for (int i = 0; i < checkBoxes.Count; i++)
+              if (checkBoxes[i].IsChecked==true) { counter++; }
+            }
+            if (counter > 0)
+            {
+                if (!((menuNameTextBox.Text.Equals("")) || (menuNameTextBox.Text.Equals(null))))
                 {
-                    if (checkBoxes[i].IsChecked == true)
+                    Names.Add(menuNameTextBox.Text);
+                    for (int i = 0; i < checkBoxes.Count; i++)
                     {
-                        currentMenu.Add(MainWindow.allRecipes[i]);
+                        if (checkBoxes[i].IsChecked == true)
+                        {
+                            currentMenu.Add(MainWindow.allRecipes[i]);
+                        }
                     }
+                    menus.Add(currentMenu);
+                    customShowMessage csm = new customShowMessage("Success", "This menu has been saved!");
+                    csm.Show();
+                    //trigger here
+
                 }
-                menus.Add(currentMenu);
-//trigger here
+                else
+                {
+                    customShowMessage csm = new customShowMessage("Error", "Please ENTER in the NAME for the\nrecipe!");
+                    csm.Show();
+                }
             }
             else
             {
-                customShowMessage csm = new customShowMessage("Error", "Please ENTER in the NAME for the\nrecipe!");
+                customShowMessage csm = new customShowMessage("Error", "Please SELECT at least one recipe!");
                 csm.Show();
             }
+           
         }
     }
 }

@@ -63,6 +63,9 @@
     <Compile Include="AddMenuPie.xaml.cs">
       <DependentUpon>AddMenuPie.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PieGraphViewer.xaml.cs">
+      <DependentUpon>PieGraphViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ScaleViewRecipe.xaml.cs">
       <DependentUpon>ScaleViewRecipe.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVM\View\ViewRecipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PieGraphViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

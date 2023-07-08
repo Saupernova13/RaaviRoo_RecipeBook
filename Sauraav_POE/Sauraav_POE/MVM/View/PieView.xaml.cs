@@ -48,6 +48,47 @@ namespace Sauraav_POE.MVM.View
             }
 
         }
+
+        public Border GenerateAddButton()
+        {
+            Border border = new Border();
+            border.BorderThickness = new Thickness(1);
+            border.CornerRadius = new CornerRadius(5);
+            border.Height = 150;
+            border.Width = 150;
+            border.HorizontalAlignment = HorizontalAlignment.Left;
+            border.VerticalAlignment = VerticalAlignment.Center;
+            DrawingBrush brush = new DrawingBrush();
+            brush.Viewport = new Rect(0, 0, 8, 8);
+            brush.ViewportUnits = BrushMappingMode.Absolute;
+            brush.TileMode = TileMode.Tile;
+            border.Margin = new Thickness(13, 10, 0, 10);
+            DrawingGroup drawingGroup = new DrawingGroup();
+            GeometryDrawing geometryDrawing = new GeometryDrawing();
+            geometryDrawing.Brush = Brushes.White;
+            GeometryGroup geometryGroup = new GeometryGroup();
+            geometryGroup.Children.Add(new RectangleGeometry(new Rect(0, 0, 50, 50)));
+            geometryGroup.Children.Add(new RectangleGeometry(new Rect(50, 50, 50, 50)));
+            geometryDrawing.Geometry = geometryGroup;
+            drawingGroup.Children.Add(geometryDrawing);
+            brush.Drawing = drawingGroup;
+            border.BorderBrush = brush;
+            Grid grid = new Grid();
+            grid.Height = 150;
+            grid.Width = 150;
+            TextBlock textBlock = new TextBlock();
+            textBlock.Text = "+";
+            textBlock.Foreground = Brushes.White;
+            textBlock.VerticalAlignment = VerticalAlignment.Center;
+            textBlock.HorizontalAlignment = HorizontalAlignment.Center;
+            textBlock.Margin = new Thickness(0, 0, 0, 20);
+            textBlock.FontSize = 50;
+            grid.Children.Add(textBlock);
+            border.Child = grid;
+            grid.PreviewMouseLeftButtonDown += Border_PreviewMouseLeftButtonDown;
+            return border;
+        }
+
         public void addLists(int n)
         {
             StackPanel stackPanelSteps = new StackPanel()
@@ -73,11 +114,12 @@ namespace Sauraav_POE.MVM.View
                 RadiusY = 10,
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
+                Margin = new Thickness(0, 0, 0, 0)
             };
             rectangle.MouseLeftButtonDown += (sender, e) =>
             {
-                ScaleViewRecipe displaySR = new ScaleViewRecipe(MainWindow.allRecipes[n], n);
-                displaySR.Show();
+                PieGraphViewer pgv = new PieGraphViewer(menus[n]);
+                pgv.Show();
             };
             Grid grid = new Grid()
             {
@@ -87,45 +129,6 @@ namespace Sauraav_POE.MVM.View
             grid.Children.Add(menuNameLabel);
             stackPanelSteps.Children.Add(grid);
             viewMenuList_StackPnl.Children.Add(stackPanelSteps);
-        }
-
-        public Border GenerateAddButton()
-        {
-            Border border = new Border();
-            border.BorderThickness = new Thickness(1);
-            border.CornerRadius = new CornerRadius(5);
-            border.Height = 150;
-            border.Width = 150;
-            border.HorizontalAlignment = HorizontalAlignment.Left;
-            border.VerticalAlignment = VerticalAlignment.Center;
-            DrawingBrush brush = new DrawingBrush();
-            brush.Viewport = new Rect(0, 0, 8, 8);
-            brush.ViewportUnits = BrushMappingMode.Absolute;
-            brush.TileMode = TileMode.Tile;
-            DrawingGroup drawingGroup = new DrawingGroup();
-            GeometryDrawing geometryDrawing = new GeometryDrawing();
-            geometryDrawing.Brush = Brushes.White;
-            GeometryGroup geometryGroup = new GeometryGroup();
-            geometryGroup.Children.Add(new RectangleGeometry(new Rect(0, 0, 50, 50)));
-            geometryGroup.Children.Add(new RectangleGeometry(new Rect(50, 50, 50, 50)));
-            geometryDrawing.Geometry = geometryGroup;
-            drawingGroup.Children.Add(geometryDrawing);
-            brush.Drawing = drawingGroup;
-            border.BorderBrush = brush;
-            Grid grid = new Grid();
-            grid.Height = 150;
-            grid.Width = 150;
-            TextBlock textBlock = new TextBlock();
-            textBlock.Text = "+";
-            textBlock.Foreground = Brushes.White;
-            textBlock.VerticalAlignment = VerticalAlignment.Center;
-            textBlock.HorizontalAlignment = HorizontalAlignment.Center;
-            textBlock.Margin = new Thickness(0, 0, 0, 20);
-            textBlock.FontSize = 50;
-            grid.Children.Add(textBlock);
-            border.Child = grid;
-            grid.PreviewMouseLeftButtonDown += Border_PreviewMouseLeftButtonDown;
-            return border;
         }
 
         private void Border_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
