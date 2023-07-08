@@ -23,7 +23,7 @@ namespace Sauraav_POE
 {
     public partial class AddMenuPie : Window
     {
-        public List<List<RecipeComplete>> menus = new List<List<RecipeComplete>>();
+        public static List<List<RecipeComplete>> menus = new List<List<RecipeComplete>>();
         public List<RecipeComplete> currentMenu = new List<RecipeComplete>();
         public static List<string> Names = new List<string>();
         public List<CheckBox> checkBoxes = new List<CheckBox>();
@@ -85,12 +85,6 @@ namespace Sauraav_POE
                 VerticalAlignment = VerticalAlignment.Top,
             };
 
-            rectangle.MouseLeftButtonDown += (sender, e) =>
-            {
-                DisplayViewRecipe displayVR = new DisplayViewRecipe(MainWindow.allRecipes[n]);
-                displayVR.Show();
-            };
-
             Grid grid = new Grid()
             {
                 Margin = new Thickness(10)
@@ -125,7 +119,6 @@ namespace Sauraav_POE
                     menus.Add(currentMenu);
                     customShowMessage csm = new customShowMessage("Success", "This menu has been saved!");
                     csm.Show();
-                    //trigger here
 
                 }
                 else

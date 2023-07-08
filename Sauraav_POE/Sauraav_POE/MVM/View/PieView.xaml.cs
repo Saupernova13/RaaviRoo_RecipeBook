@@ -46,7 +46,7 @@ namespace Sauraav_POE.MVM.View
             {
                 addLists(i);
             }
-
+            menus = AddMenuPie.menus;
         }
 
         public Border GenerateAddButton()

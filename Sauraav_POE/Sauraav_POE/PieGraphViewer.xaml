@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Sauraav_POE"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Height="600"
         Width="920"
@@ -44,8 +45,25 @@
                           x:Name="viewGraph_Scroller">
                 <Grid>
 
-                    <StackPanel Name="viewGraph_StackPnl"
-                                Margin="10" />
+
+                    <Grid>
+                        <lvc:PieChart LegendLocation="Right"
+                                      Series="{Binding SeriesCollection}"
+                                      Hoverable="True"
+                                      Margin="0,20,0,20"
+                                      Loaded="PieChart_Loaded"
+                                      HorizontalAlignment="Center"
+                                      Width="625">
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend BulletSize="30"
+                                                   TextBlock.FontSize="30"></lvc:DefaultLegend>
+                            </lvc:PieChart.ChartLegend>
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip BulletSize="30"></lvc:DefaultTooltip>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                    </Grid>
+
 
                 </Grid>
 
