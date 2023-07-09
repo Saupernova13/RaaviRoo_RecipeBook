@@ -38,12 +38,11 @@
                        Grid.Row="0"
                    />
             <TextBlock Grid.Column="0"
-                       Text="Roooo Recipe"
+                       Text="RaaviRoo Recipe's"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Left"
+                       HorizontalAlignment="Center"
                        Foreground="White"
-                       FontSize="22"
-                       Margin="20,0,0,0"></TextBlock>
+                       FontSize="22"></TextBlock>
             <StackPanel Grid.Row="1"
                         Margin="0,0,0,0"    >
                 <RadioButton x:Name="HomeRadioButton"

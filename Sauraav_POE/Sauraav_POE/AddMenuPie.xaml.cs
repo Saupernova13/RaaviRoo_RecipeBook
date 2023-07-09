@@ -23,10 +23,13 @@ namespace Sauraav_POE
 {
     public partial class AddMenuPie : Window
     {
+        ////Public variables needed in class
         public static List<List<RecipeComplete>> menus = new List<List<RecipeComplete>>();
         public List<RecipeComplete> currentMenu = new List<RecipeComplete>();
         public static List<string> Names = new List<string>();
         public List<CheckBox> checkBoxes = new List<CheckBox>();
+
+        ////Method to initiate the class
         public AddMenuPie(List<List<RecipeComplete>> passMenu)
         {
             InitializeComponent();
@@ -38,10 +41,13 @@ namespace Sauraav_POE
             }
         }
 
+        ////Method to exit
         private void exitPage(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        ////Method to add list elements to the UI
         public void addLists(int n)
         {
             StackPanel stackPanelSteps = new StackPanel()
@@ -96,7 +102,7 @@ namespace Sauraav_POE
             viewRecipesList_StackPnl.Children.Add(stackPanelSteps);
         }
 
-
+        ////Method to save details of the menu
         private void saveMenuDetals(object sender, RoutedEventArgs e)
         {
             int counter = 0;
@@ -134,6 +140,8 @@ namespace Sauraav_POE
             }
 
         }
+
+        ////Method to allow rectangle clicks
         private void RectangleClicked(object sender, MouseButtonEventArgs e)
         {
             foreach (var c in checkBoxes)
@@ -141,6 +149,8 @@ namespace Sauraav_POE
                 c.IsChecked = !c.IsChecked;
             }
         }
+
+        ////Method to keep window on top
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Topmost = true;

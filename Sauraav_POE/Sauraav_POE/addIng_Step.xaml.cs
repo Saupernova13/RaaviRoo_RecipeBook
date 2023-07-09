@@ -20,9 +20,16 @@ namespace Sauraav_POE.Windows
 {
     public partial class addIng_Step : Window
     {
+        ////Public variables required for the class
         private static bool isMessageBoxOpen = false;
         public double calories = 0;
         public RecipeComplete currentRecipe = new RecipeComplete();
+        public static dynamic converter = new System.Windows.Media.BrushConverter();
+        public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
+        public static int amountOfIngredients;
+        public static int stepsToRecipe;
+
+        ////Declaration for the custom message box
         public static void showMessageCustom(string windowName, string windowText)
         {
             if (!isMessageBoxOpen)
@@ -33,10 +40,8 @@ namespace Sauraav_POE.Windows
                 showMessage.Closed += (sender, args) => isMessageBoxOpen = false;
             }
         }
-        public static dynamic converter = new System.Windows.Media.BrushConverter();
-        public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
-        public static int amountOfIngredients;
-        public static int stepsToRecipe;
+
+        ////Method to populate the UI with the required number of ingredients and steps
         public addIng_Step(RecipeComplete inputRecipe)
         {
             currentRecipe = inputRecipe;
@@ -46,6 +51,8 @@ namespace Sauraav_POE.Windows
             Loaded += MainWindow_Loaded;
             populateUI(amountOfIngredients, stepsToRecipe);
         }
+
+        ////Method to populate the UI with the required number of ingredients
         public void addIngredients(int n)
         {
             StackPanel stackPanelIngredients = new StackPanel()
@@ -182,6 +189,8 @@ namespace Sauraav_POE.Windows
             grid.Children.Add(stackPanelIngredients);
             addIng_Step_Body.Children.Add(grid);
         }
+        
+        ////Method to populate the UI with the required number of steps
         public void addSteps(int n)
         {
             StackPanel stackPanelSteps = new StackPanel()
@@ -239,6 +248,7 @@ namespace Sauraav_POE.Windows
             addIng_Step_Body_2.Children.Add(grid);
         }
 
+        ////Method that calls the population methods for ingredients and steps
         public void populateUI(int ingredientNo, int stepNo)
         {
             for (int i = 0; i < ingredientNo; i++)
@@ -250,6 +260,8 @@ namespace Sauraav_POE.Windows
                 addSteps(i + 1);
             }
         }
+
+        ////Method to read the values from the textboxes and comboboxes for ingredients
         public List<Ingredient> readTextBoxValuesIngredients()
         {
             int badFields = 0;
@@ -330,6 +342,8 @@ namespace Sauraav_POE.Windows
             }
             return ingredients;
         }
+        
+        ////Method to read the values from the textboxes for steps
         public List<string> readTextBoxValuesDesc()
         {
             int counter = 0;
@@ -356,6 +370,7 @@ namespace Sauraav_POE.Windows
             return values;
         }
 
+        ////Method to save all details of the recipe
         private void saveRecipeDetails_All(object sender, RoutedEventArgs e)
         {
             int success = 0;
@@ -395,12 +410,14 @@ namespace Sauraav_POE.Windows
 
         }
 
+        ////Method to check input is number
         public void onlyNumbers(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        ////Method to check input is not null
         public static bool nullOrNumber(string input)
         {
             bool result = false;
@@ -416,6 +433,7 @@ namespace Sauraav_POE.Windows
             return (result);
         }
 
+        ////Method to check input is digit
         public static bool isDigit(string input)
         {
             bool result = false;
@@ -430,12 +448,14 @@ namespace Sauraav_POE.Windows
             return (result);
         }
 
+        ////Method to exit the page
         private void exitPage(object sender, RoutedEventArgs e)
         {
             this.Close();
 
         }
 
+        ////Method to keep the window on top
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Topmost = true;

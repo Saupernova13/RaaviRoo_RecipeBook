@@ -133,8 +133,8 @@ namespace Sauraav_POE
                 foreach (Ingredient ing in scaledRecipe.ingredients)
                 {
                     ing.quantity = ing.quantity * 0.5;
-                    saveChanges();
-                }
+                }  
+                saveChanges();
             };
 
             rectangleDouble.PreviewMouseLeftButtonDown += (sender, e) =>
@@ -142,8 +142,8 @@ namespace Sauraav_POE
                 foreach (Ingredient ing in scaledRecipe.ingredients)
                 {
                     ing.quantity = ing.quantity * 2;
-                    saveChanges();
                 }
+                saveChanges();
             };
 
             rectangleTriple.PreviewMouseLeftButtonDown += (sender, e) =>
@@ -151,8 +151,8 @@ namespace Sauraav_POE
                 foreach (Ingredient ing in scaledRecipe.ingredients)
                 {
                     ing.quantity = ing.quantity * 3;
-                    saveChanges();
                 }
+                saveChanges();
             };
 
             rectangleReset.PreviewMouseLeftButtonDown += (sender, e) =>
@@ -160,10 +160,9 @@ namespace Sauraav_POE
                 foreach (Ingredient ing in scaledRecipe.ingredients)
                 {
                     ing.quantity = ing.quantityOG;
-                    saveChanges();
                 }
+                saveChanges();
             };
-
             gridHalf.Children.Add(rectangleHalf);
             gridHalf.Children.Add(recipeNameLabelHalf);
             stackPanelSteps.Children.Add(gridHalf);

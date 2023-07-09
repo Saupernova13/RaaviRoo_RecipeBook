@@ -13,9 +13,12 @@ namespace Sauraav_POE
 {
     public partial class customShowMessage : Window
     {
+        ////Public variables needed for class
         public static bool isNull = false;
         public static addIng_Step closeThis;
         public RecipeComplete currentRecipe;
+
+        ////Method to initiate the class
         public customShowMessage(string windowName, string WindowDetails, addIng_Step closeWindow = null, RecipeComplete passRecipe = null)
         {
             currentRecipe = passRecipe;
@@ -33,6 +36,7 @@ namespace Sauraav_POE
             }
         }
 
+        ////Method to create the UI elements
         private void CreateUIElements(string windowName, string WindowDetails)
         {
             Border outerBorder = new Border();
@@ -70,6 +74,7 @@ namespace Sauraav_POE
             grid.Children.Add(textBlock);
         }
 
+        ////Method to close the window
         private void OK_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -88,6 +93,8 @@ namespace Sauraav_POE
                 closeThis.Close();
             }
         }
+
+        ////Method to set the window to topmost
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Topmost = true;

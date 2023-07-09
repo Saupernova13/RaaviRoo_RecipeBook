@@ -55,6 +55,9 @@
                    Grid.Row="1"
                    RadiusX="15"
                    RadiusY="15"></Rectangle>
+        <Rectangle Fill="#8F65394C"
+                   Grid.Column="0"
+                   Grid.Row="1"></Rectangle>
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       Grid.Column="1"
                       Grid.Row="1"

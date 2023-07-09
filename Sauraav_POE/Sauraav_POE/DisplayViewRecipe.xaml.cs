@@ -16,11 +16,14 @@ namespace Sauraav_POE
 {
     public partial class DisplayViewRecipe : Window
     {
+        ////Public variables for the class
         public static dynamic converter = new System.Windows.Media.BrushConverter();
         public static dynamic brush = (Brush)converter.ConvertFromString("#9A311C25");
         public RecipeComplete currentRecipe;
         public int ingredientCount = 0;
         public int stepCount = 0;
+
+        ////method to start the window
         public DisplayViewRecipe(RecipeComplete passRecipe = null)
         {
             currentRecipe = passRecipe;
@@ -29,6 +32,7 @@ namespace Sauraav_POE
             addForm();
         }
 
+        ////Method to load the UI
         private void addForm()
         {
             Grid mainGrid = new Grid();
@@ -197,6 +201,7 @@ namespace Sauraav_POE
             populateUI(ingredientCount, stepCount);
         }
 
+        ////Method to load the ingredients the recipe
         public void addIngredients(int n)
         {
             StackPanel stackPanelIngredients = new StackPanel()
@@ -341,6 +346,8 @@ namespace Sauraav_POE
             grid.Children.Add(stackPanelIngredients);
             DisplayViewRecipes_Body_Left.Children.Add(grid);
         }
+
+        ////Method to add steps to the recipe
         public void addSteps(int n)
         {
             StackPanel stackPanelSteps = new StackPanel()
@@ -382,7 +389,7 @@ namespace Sauraav_POE
             stackPanelSteps.Children.Add(stepDescLabel);
             stackPanelSteps.Children.Add(stepTextBox);
             Grid grid = new Grid();
-            grid.Margin = new Thickness(0,10,0,0);
+            grid.Margin = new Thickness(0, 10, 0, 0);
             Rectangle rectangle = new Rectangle();
             var converter = new System.Windows.Media.BrushConverter();
             var brush = (Brush)converter.ConvertFromString("#9A311C25");
@@ -400,6 +407,7 @@ namespace Sauraav_POE
             DisplayViewRecipes_Body_Right.Children.Add(grid);
         }
 
+        ////Method to populate the UI with the recipe details
         public void populateUI(int ingredientNo, int stepNo)
         {
             for (int i = 0; i < ingredientNo; i++)
@@ -415,6 +423,8 @@ namespace Sauraav_POE
         {
 
         }
+
+        ////Method toensure only numbers are entered in the textbox
         private void onlyNumbers(object sender, TextCompositionEventArgs e)
         {
             // Only allow numbers
@@ -427,10 +437,14 @@ namespace Sauraav_POE
                 }
             }
         }
+
+        ////Exit method
         private void exitPage(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        ////Method to keep the window on top
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Topmost = true;
