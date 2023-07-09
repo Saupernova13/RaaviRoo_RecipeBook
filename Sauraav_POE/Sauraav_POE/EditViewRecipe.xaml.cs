@@ -53,6 +53,7 @@ namespace Sauraav_POE
         {
             importedRecipe = passRecipe;
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             DisplayEditRecipes_Body.Children.Clear();
             DisplayEditRecipes_Body_Left.Children.Clear();
             DisplayEditRecipes_Body_Right.Children.Clear();
@@ -732,6 +733,10 @@ namespace Sauraav_POE
                 result = false;
             }
             return (result);
+        }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
         }
     }
 }

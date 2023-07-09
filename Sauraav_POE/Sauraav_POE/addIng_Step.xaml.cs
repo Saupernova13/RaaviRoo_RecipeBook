@@ -41,6 +41,7 @@ namespace Sauraav_POE.Windows
             amountOfIngredients = currentRecipe.amountOfIngredients;
             stepsToRecipe = currentRecipe.stepsToRecipe;
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             populateUI(amountOfIngredients, stepsToRecipe);
         }
         public void addIngredients(int n)
@@ -431,6 +432,11 @@ namespace Sauraav_POE.Windows
         {
             this.Close();
 
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
         }
     }
 

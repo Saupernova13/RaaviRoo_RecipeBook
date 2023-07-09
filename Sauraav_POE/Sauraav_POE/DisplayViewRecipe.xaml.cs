@@ -25,6 +25,7 @@ namespace Sauraav_POE
         {
             currentRecipe = passRecipe;
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             addForm();
         }
 
@@ -430,6 +431,9 @@ namespace Sauraav_POE
         {
             this.Close();
         }
-
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace Sauraav_POE
         {
             scaledRecipe = inputRecipe;
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             addLists();
         }
 
@@ -186,6 +187,10 @@ namespace Sauraav_POE
         private void exitPage(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
         }
     }
 }

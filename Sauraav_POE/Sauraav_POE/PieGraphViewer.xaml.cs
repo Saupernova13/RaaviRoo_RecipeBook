@@ -37,6 +37,7 @@ namespace Sauraav_POE
             int Fats = 0;
             int Water = 0;
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             currentMenu = menuToGraph;
             for (int i = 0; i < currentMenu.Count; i++)
             {
@@ -140,6 +141,11 @@ namespace Sauraav_POE
         private void PieChart_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
         }
 
     }

@@ -30,6 +30,7 @@ namespace Sauraav_POE
         public AddMenuPie(List<List<RecipeComplete>> passMenu)
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             menus = passMenu;
             for (int i = 0; i < MainWindow.allRecipes.Count; i++)
             {
@@ -133,6 +134,10 @@ namespace Sauraav_POE
                 csm.Show();
             }
            
+        }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
         }
     }
 }

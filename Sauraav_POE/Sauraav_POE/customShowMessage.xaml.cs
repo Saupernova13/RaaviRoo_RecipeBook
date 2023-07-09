@@ -20,6 +20,7 @@ namespace Sauraav_POE
         {
             currentRecipe = passRecipe;
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             CreateUIElements(windowName, WindowDetails);
             if (!(closeWindow == null))
             {
@@ -86,6 +87,10 @@ namespace Sauraav_POE
             {
                 closeThis.Close();
             }
+        }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
         }
     }
 }
