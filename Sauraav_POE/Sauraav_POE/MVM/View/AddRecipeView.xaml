@@ -120,6 +120,16 @@
                     Style="{StaticResource ModernButton}"
                     Width="100"
                     Click="saveRecipeDetails" />
+            <Button Grid.Column="1"
+                    Content="Autofill"
+                    HorizontalAlignment="Left"
+                    Margin="-10,211,0,0"
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource ModernButton}"
+                    Width="100"
+                    Click="savePromptGPT" />
+
         </Grid>
     </Grid>
 </UserControl>

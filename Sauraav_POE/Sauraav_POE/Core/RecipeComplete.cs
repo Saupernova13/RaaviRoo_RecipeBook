@@ -117,7 +117,6 @@ namespace Sauraav_POE_Part_2
             }
 
         }
-        ////Method lets user delete the recipe
 
         ////Method lets user reset the recipe to default values
         public void resetIngredientQuantities()

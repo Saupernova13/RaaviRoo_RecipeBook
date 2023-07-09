@@ -13,6 +13,8 @@ using Sauraav_POE_Part_2;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Security.Cryptography;
+using OpenAI_API;
+using OpenAI_API.Completions;
 
 namespace Sauraav_POE.Windows
 {
@@ -74,7 +76,7 @@ namespace Sauraav_POE.Windows
             TextBox ingredientTextBoxName = new TextBox()
             {
                 Name = $"ingredientTextBox_{n}",
-                Width = 200,
+                Width = 150,
                 Height = 40,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -92,7 +94,7 @@ namespace Sauraav_POE.Windows
             TextBox ingredientTextBoxQty = new TextBox()
             {
                 Name = $"ingredientTextBox_{n}",
-                Width = 200,
+                Width = 150,
                 Height = 40,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -110,7 +112,7 @@ namespace Sauraav_POE.Windows
             ComboBox ingredientComboBoxMeasurementUnit = new ComboBox()
             {
                 Name = $"ingredientTextBox_{n}",
-                Width = 200,
+                Width = 150,
                 Height = 40,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -129,7 +131,7 @@ namespace Sauraav_POE.Windows
             ComboBox ingredientComboBoxFoodGroup = new ComboBox()
             {
                 Name = $"ingredientTextBox_{n}",
-                Width = 200,
+                Width = 150,
                 Height = 40,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -148,7 +150,7 @@ namespace Sauraav_POE.Windows
             TextBox ingredientTextBoxCalories = new TextBox()
             {
                 Name = $"ingredientTextBox_{n}",
-                Width = 200,
+                Width = 150,
                 Height = 40,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -167,7 +169,7 @@ namespace Sauraav_POE.Windows
             stackPanelIngredients.Children.Add(ingredientLabelCalories);
             stackPanelIngredients.Children.Add(ingredientTextBoxCalories);
             Grid grid = new Grid();
-            grid.Margin = new Thickness(10);
+            grid.Margin = new Thickness(5);
             Rectangle rectangle = new Rectangle();
             rectangle.Fill = brush;
             rectangle.Height = 395;
@@ -221,7 +223,7 @@ namespace Sauraav_POE.Windows
             stackPanelSteps.Children.Add(stepLabel);
             stackPanelSteps.Children.Add(stepTextBox);
             Grid grid = new Grid();
-            grid.Margin = new Thickness(10);
+            grid.Margin = new Thickness(5);
             Rectangle rectangle = new Rectangle();
             var converter = new System.Windows.Media.BrushConverter();
             var brush = (Brush)converter.ConvertFromString("#9A311C25");
