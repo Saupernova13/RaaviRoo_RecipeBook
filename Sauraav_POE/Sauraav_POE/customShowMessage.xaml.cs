@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
+
 namespace Sauraav_POE
 {
     public partial class customShowMessage : Window
@@ -71,6 +72,16 @@ namespace Sauraav_POE
         private void OK_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                RadioButton homeRadioButton = mainWindow.FindName("HomeRadioButton") as RadioButton;
+                if (homeRadioButton != null)
+                {
+                    homeRadioButton.IsChecked = true;
+                    homeRadioButton.Command.Execute("{Binding HomeViewNewViewCommand}");
+                }
+            }
             if (!isNull)
             {
                 closeThis.Close();
