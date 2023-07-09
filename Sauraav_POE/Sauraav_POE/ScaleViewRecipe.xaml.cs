@@ -181,7 +181,7 @@ namespace Sauraav_POE
         public void saveChanges()
         {
             MainWindow.allRecipes[parser] = scaledRecipe;
-            customShowMessage csm = new customShowMessage("Success!", "Your Recipe has been scaled by your selected value!\nGo to the View Recipe Tab to see your changes.");
+            customShowMessage csm = new customShowMessage("Success!", "Your Recipe has been scaled by your selected value!\nPlease exit this window and go to\nthe View Recipe Tab to see your changes.");
             csm.Show();
         }
         private void exitPage(object sender, RoutedEventArgs e)

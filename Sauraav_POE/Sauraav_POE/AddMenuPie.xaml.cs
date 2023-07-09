@@ -55,14 +55,12 @@ namespace Sauraav_POE
                 Orientation = Orientation.Horizontal,
                 VerticalAlignment = VerticalAlignment.Center
             };
-
             CheckBox checkBox = new CheckBox()
             {
                 VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(0, 0, 8, 0)
+                Margin = new Thickness(10, 0, 8, 0)
             };
             checkBoxes.Add(checkBox);
-
             Label recipeNameLabel = new Label()
             {
                 Name = $"recipeNameLabel_{n}",
@@ -85,6 +83,7 @@ namespace Sauraav_POE
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
             };
+            rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(RectangleClicked);
 
             Grid grid = new Grid()
             {
@@ -103,7 +102,7 @@ namespace Sauraav_POE
             int counter = 0;
             for (int i = 0; i < checkBoxes.Count; i++)
             {
-              if (checkBoxes[i].IsChecked==true) { counter++; }
+                if (checkBoxes[i].IsChecked == true) { counter++; }
             }
             if (counter > 0)
             {
@@ -133,7 +132,14 @@ namespace Sauraav_POE
                 customShowMessage csm = new customShowMessage("Error", "Please SELECT at least one recipe!");
                 csm.Show();
             }
-           
+
+        }
+        private void RectangleClicked(object sender, MouseButtonEventArgs e)
+        {
+            foreach (var c in checkBoxes)
+            {
+                c.IsChecked = !c.IsChecked;
+            }
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {

@@ -703,7 +703,7 @@ namespace Sauraav_POE
                     customShowMessage csmCalorie = new customShowMessage("Warning!", "This recipe contains over 300 calories!");
                     csmCalorie.Show();
                 }
-                customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully Updated!");
+                customShowMessage csm = new customShowMessage("Details Captured!", "The details you entered have been\nsuccessfully Updated!\nPlease exit this window and go to\nthe View tab to see changes.");
                 csm.Show();
                 this.Close();
             }
