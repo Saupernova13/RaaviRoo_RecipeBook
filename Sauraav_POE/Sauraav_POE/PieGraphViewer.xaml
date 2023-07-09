@@ -7,7 +7,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Height="600"
-        Width="920"
+        Width="760"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -47,14 +47,14 @@
 
 
                     <Grid >
-                        <Grid Margin="-250,20,20,20">
+                        <Grid Margin="-250,20,20,110">
                             <lvc:PieChart LegendLocation="Left"
                                           Series="{Binding SeriesCollection}"
                                           Hoverable="True"
                                           Margin="0,20,0,20"
                                           Loaded="PieChart_Loaded"
                                           HorizontalAlignment="Center"
-                                          Width="400">
+                                          Width="250">
                                 <lvc:PieChart.ChartLegend>
                                     <lvc:DefaultLegend BulletSize="30"
                                                        TextBlock.FontSize="15"

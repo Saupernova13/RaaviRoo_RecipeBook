@@ -31,7 +31,7 @@ namespace Sauraav_POE
         private void addForm()
         {
             Grid mainGrid = new Grid();
-            mainGrid.Margin = new Thickness(10);
+            mainGrid.Margin = new Thickness(0);
 
             ColumnDefinition column1 = new ColumnDefinition();
             column1.Width = new GridLength(300);
@@ -160,6 +160,7 @@ namespace Sauraav_POE
             ingredientQuantityTextBox.HorizontalAlignment = HorizontalAlignment.Left;
             ingredientQuantityTextBox.Style = (Style)FindResource("ModernTextBox");
             ingredientQuantityTextBox.Text = "" + currentRecipe.amountOfIngredients;
+            ingredientQuantityTextBox.IsReadOnly = true;
             ingredientQuantityTextBox.PreviewTextInput += onlyNumbers;
 
             Label numberOfStepsLabel = new Label();
@@ -324,7 +325,7 @@ namespace Sauraav_POE
             stackPanelIngredients.Children.Add(ingredientLabelCalories);
             stackPanelIngredients.Children.Add(ingredientTextBoxCalories);
             Grid grid = new Grid();
-            grid.Margin = new Thickness(10);
+            grid.Margin = new Thickness(0, 10, 0, 0);
             Rectangle rectangle = new Rectangle();
             rectangle.Fill = brush;
             rectangle.Height = 395;
@@ -380,7 +381,7 @@ namespace Sauraav_POE
             stackPanelSteps.Children.Add(stepDescLabel);
             stackPanelSteps.Children.Add(stepTextBox);
             Grid grid = new Grid();
-            grid.Margin = new Thickness(10);
+            grid.Margin = new Thickness(0,10,0,0);
             Rectangle rectangle = new Rectangle();
             var converter = new System.Windows.Media.BrushConverter();
             var brush = (Brush)converter.ConvertFromString("#9A311C25");

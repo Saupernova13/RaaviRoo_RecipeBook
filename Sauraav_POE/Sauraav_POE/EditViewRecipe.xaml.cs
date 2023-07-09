@@ -372,7 +372,7 @@ namespace Sauraav_POE
             stackPanelIngredients.Children.Add(ingredientLabelCalories);
             stackPanelIngredients.Children.Add(ingredientTextBoxCalories);
             Grid grid = new Grid();
-            grid.Margin = new Thickness(10);
+            grid.Margin = new Thickness(0, 10, 0, 0);
             Rectangle rectangle = new Rectangle();
             rectangle.Fill = brush;
             rectangle.Height = 395;
@@ -424,8 +424,8 @@ namespace Sauraav_POE
             stackPanelSteps.Children.Add(stepCountLabel);
             stackPanelSteps.Children.Add(stepDescLabel);
             stackPanelSteps.Children.Add(stepTextBox);
-            Grid grid = new Grid();
-            grid.Margin = new Thickness(10);
+            Grid grid = new Grid(); 
+            grid.Margin = new Thickness(0, 10, 0, 0);
             Rectangle rectangle = new Rectangle();
             var converter = new System.Windows.Media.BrushConverter();
             var brush = (Brush)converter.ConvertFromString("#9A311C25");

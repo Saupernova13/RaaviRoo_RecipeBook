@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Sauraav_POE"
         mc:Ignorable="d"
         Height="600"
-        Width="920"
+        Width="760"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"

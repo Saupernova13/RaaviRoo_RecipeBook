@@ -170,7 +170,7 @@ namespace Sauraav_POE.Windows
             Rectangle rectangle = new Rectangle();
             rectangle.Fill = brush;
             rectangle.Height = 395;
-            rectangle.Width = 222;
+            rectangle.Width = 207;
             rectangle.RadiusX = 10;
             rectangle.RadiusY = 10;
             rectangle.HorizontalAlignment = HorizontalAlignment.Center;
@@ -226,7 +226,7 @@ namespace Sauraav_POE.Windows
             var brush = (Brush)converter.ConvertFromString("#9A311C25");
             rectangle.Fill = brush;
             rectangle.Height = 130;
-            rectangle.Width = 225;
+            rectangle.Width = 210;
             rectangle.RadiusX = 10;
             rectangle.RadiusY = 10;
             rectangle.HorizontalAlignment = HorizontalAlignment.Center;

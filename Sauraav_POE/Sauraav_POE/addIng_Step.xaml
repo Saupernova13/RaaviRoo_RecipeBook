@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Sauraav_POE.Windows"
         mc:Ignorable="d"
         Height="600"
-        Width="920"
+        Width="760"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -53,7 +53,7 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       Grid.Column="1"
                       Grid.Row="1"
-                      Margin="10, 10 ,10 ,80"
+                      Margin="0, 0 ,0 ,80"
                       x:Name="addIng_Step_Scroller">
             <StackPanel x:Name="addIng_Step_Body"
                         Margin="20,0,20,0">
@@ -62,7 +62,7 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       Grid.Column="3"
                       Grid.Row="1"
-                      Margin="10, 10 ,10 ,80"
+                      Margin="0, 0 ,0 ,80"
                       x:Name="addIng_Step_Scroller_2">
             <StackPanel x:Name="addIng_Step_Body_2"
                         Grid.Column="2"

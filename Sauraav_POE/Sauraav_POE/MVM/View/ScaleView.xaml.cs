@@ -61,7 +61,7 @@ namespace Sauraav_POE.MVM.View
             {
                 Fill = new SolidColorBrush(Color.FromArgb(154, 49, 28, 37)),
                 Height = 40,
-                Width = 500,
+                Width = 440,
                 RadiusX = 10,
                 RadiusY = 10,
                 HorizontalAlignment = HorizontalAlignment.Left,

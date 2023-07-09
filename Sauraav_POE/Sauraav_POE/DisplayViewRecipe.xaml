@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sauraav_POE"
         mc:Ignorable="d"
         Height="600"
-        Width="920"
+        Width="760"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -46,15 +46,15 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <StackPanel x:Name="DisplayViewRecipes_Body"
-                            Margin="20,0,20,0" Grid.Row="0">
+                            Margin="0,0,0,0" Grid.Row="0">
                 </StackPanel>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="296"></ColumnDefinition>
+                        <ColumnDefinition Width="275"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <StackPanel x:Name="DisplayViewRecipes_Body_Left"
-                                Margin="20,0,20,0"
+                                Margin="0,0,0,0"
                                 Grid.Row="0"
                                 Grid.Column="0">
                     </StackPanel>
