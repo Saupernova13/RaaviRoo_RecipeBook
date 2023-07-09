@@ -50,7 +50,7 @@ namespace Sauraav_POE
                         case "Vegetables and fruits":
                             FruitsAndVeg++;
                             break;
-                        case "Dry beans, peas, lentils and soya":
+                        case "Dry beans, peas, lentils and soy":
                             DryBeans++;
                             break;
                         case "Chicken, fish, meat and eggs":
@@ -59,7 +59,7 @@ namespace Sauraav_POE
                         case "Milk and dairy products":
                             Milk++;
                             break;
-                        case "Fats and oil":
+                        case "Fats and oils":
                             Fats++;
                             break;
                         case "Water":
@@ -69,12 +69,14 @@ namespace Sauraav_POE
                     }
                 }
             }
+
             SeriesCollection = new SeriesCollection
     {
         new PieSeries
         {
             Title= "Starchy foods",
             Values= new ChartValues<ObservableValue> { new ObservableValue(StarchyFoods) },
+            Fill = (Brush)new BrushConverter().ConvertFrom("#F90C71"),
             DataLabels= true
         },
 
@@ -82,6 +84,7 @@ namespace Sauraav_POE
         {
             Title= "Vegetables and fruits",
             Values= new ChartValues<ObservableValue> { new ObservableValue(FruitsAndVeg) },
+              Fill = (Brush)new BrushConverter().ConvertFrom("#D80A63"),
             DataLabels= true
         },
 
@@ -89,12 +92,14 @@ namespace Sauraav_POE
         {
             Title= "Dry beans, peas, lentils and soya",
             Values= new ChartValues<ObservableValue> { new ObservableValue(DryBeans) },
+                Fill = (Brush)new BrushConverter().ConvertFrom("#B60854"),
             DataLabels= true
         },
         new PieSeries
         {
             Title= "Chicken, fish, meat and eggs",
             Values= new ChartValues<ObservableValue> { new ObservableValue(Chicken) },
+                Fill = (Brush)new BrushConverter().ConvertFrom("#950646"),
             DataLabels= true
         },
 
@@ -102,6 +107,7 @@ namespace Sauraav_POE
         {
             Title= "Milk and dairy products",
             Values= new ChartValues<ObservableValue> { new ObservableValue(Milk) },
+                Fill = (Brush)new BrushConverter().ConvertFrom("#730437"),
             DataLabels= true
         },
 
@@ -109,12 +115,14 @@ namespace Sauraav_POE
         {
             Title= "Fats and oil",
             Values= new ChartValues<ObservableValue> { new ObservableValue(Fats) },
+                Fill = (Brush)new BrushConverter().ConvertFrom("#520229"),
             DataLabels= true
         },
          new PieSeries
         {
             Title= "Water",
             Values= new ChartValues<ObservableValue> { new ObservableValue(Water) },
+                Fill = (Brush)new BrushConverter().ConvertFrom("#30001A"),
             DataLabels= true
         }
     };

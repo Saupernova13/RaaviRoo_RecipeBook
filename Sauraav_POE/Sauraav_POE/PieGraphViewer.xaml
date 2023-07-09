@@ -46,22 +46,25 @@
                 <Grid>
 
 
-                    <Grid>
-                        <lvc:PieChart LegendLocation="Right"
-                                      Series="{Binding SeriesCollection}"
-                                      Hoverable="True"
-                                      Margin="0,20,0,20"
-                                      Loaded="PieChart_Loaded"
-                                      HorizontalAlignment="Center"
-                                      Width="625">
-                            <lvc:PieChart.ChartLegend>
-                                <lvc:DefaultLegend BulletSize="30"
-                                                   TextBlock.FontSize="30"></lvc:DefaultLegend>
-                            </lvc:PieChart.ChartLegend>
-                            <lvc:PieChart.DataTooltip>
-                                <lvc:DefaultTooltip BulletSize="30"></lvc:DefaultTooltip>
-                            </lvc:PieChart.DataTooltip>
-                        </lvc:PieChart>
+                    <Grid >
+                        <Grid Margin="-250,20,20,20">
+                            <lvc:PieChart LegendLocation="Left"
+                                          Series="{Binding SeriesCollection}"
+                                          Hoverable="True"
+                                          Margin="0,20,0,20"
+                                          Loaded="PieChart_Loaded"
+                                          HorizontalAlignment="Center"
+                                          Width="400">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="30"
+                                                       TextBlock.FontSize="15"
+                                                       Foreground="White"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="10"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
+                        </Grid>
                     </Grid>
 
 
