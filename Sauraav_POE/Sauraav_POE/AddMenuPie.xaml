@@ -94,6 +94,14 @@
                     Style="{StaticResource ModernButton}"
                     Width="100"
                     Click="saveMenuDetals" />
+            <Button Grid.Column="1"
+                    Content="Select All"
+                    HorizontalAlignment="Left"
+                    Margin="270,0,0,0"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource ModernButton}"
+                    Width="100"
+                    Click="selectAllMenuDetals" />
 
         </Grid>
     </Grid>

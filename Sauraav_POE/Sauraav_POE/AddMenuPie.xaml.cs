@@ -89,7 +89,7 @@ namespace Sauraav_POE
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
             };
-            rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(RectangleClicked);
+          
 
             Grid grid = new Grid()
             {
@@ -129,31 +129,31 @@ namespace Sauraav_POE
                 }
                 else
                 {
-                    customShowMessage csm = new customShowMessage("Error", "Please ENTER in the NAME for the\nrecipe!");
+                    customShowMessage csm = new customShowMessage("Error", "Please ENTER in the NAME for the\nMenu!");
                     csm.Show();
                 }
             }
             else
             {
-                customShowMessage csm = new customShowMessage("Error", "Please SELECT at least one recipe!");
+                customShowMessage csm = new customShowMessage("Error", "Please SELECT at least one recipe to include\nin your Menu!");
                 csm.Show();
             }
 
-        }
-
-        ////Method to allow rectangle clicks
-        private void RectangleClicked(object sender, MouseButtonEventArgs e)
-        {
-            foreach (var c in checkBoxes)
-            {
-                c.IsChecked = !c.IsChecked;
-            }
         }
 
         ////Method to keep window on top
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Topmost = true;
+        }
+
+        ////Method to select all recipes
+        private void selectAllMenuDetals(object sender, RoutedEventArgs e)
+        {
+            foreach (var c in checkBoxes)
+            {
+                c.IsChecked = !c.IsChecked;
+            }
         }
     }
 }

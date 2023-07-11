@@ -183,12 +183,18 @@ namespace Sauraav_POE
             numberOfStepsTextBox.IsReadOnly = true;
             numberOfStepsTextBox.PreviewTextInput += onlyNumbers;
 
+            Label calorieLabel = new Label();
+            calorieLabel.Content = $"Total Calorie Count: {currentRecipe.returnTotalCalories(currentRecipe.ingredients)}";
+            calorieLabel.Foreground = Brushes.White;
+
+
             stackPanel2.Children.Add(preparationTimeLabel);
             stackPanel2.Children.Add(preparationTimeTextBox);
             stackPanel2.Children.Add(ingredientQuantityLabel);
             stackPanel2.Children.Add(ingredientQuantityTextBox);
             stackPanel2.Children.Add(numberOfStepsLabel);
             stackPanel2.Children.Add(numberOfStepsTextBox);
+            stackPanel2.Children.Add(calorieLabel);
 
 
             mainGrid.Children.Add(stackPanel);

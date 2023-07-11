@@ -101,7 +101,7 @@ namespace Sauraav_POE.MVM.View
                 Name = $"menuNameLabel_{n}",
                 Content = $"Menu: {Names[n]}",
                 Foreground = Brushes.White,
-                Margin = new Thickness(0, 8, 0, 0),
+                Margin = new Thickness(10, 5, 0, 0),
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left
             };

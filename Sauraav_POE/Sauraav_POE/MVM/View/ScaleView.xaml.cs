@@ -53,7 +53,7 @@ namespace Sauraav_POE.MVM.View
                 Name = $"recipeNameLabel_{n}",
                 Content = $"Recipe No.{n + 1}: {(listRecipe[n]?.recipeName ?? "")}",
                 Foreground = Brushes.White,
-                Margin = new Thickness(0, 8, 0, 0),
+                Margin = new Thickness(10, 8, 0, 0),
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
